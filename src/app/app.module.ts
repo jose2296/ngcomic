@@ -8,13 +8,23 @@ import {FooterComponent} from './footer/footer.component';
 
 //Routes
 import {app_routing} from './app.routes';
+import { HomeComponent } from './mainComponents/home/home.component';
+import { ShopComponent } from './mainComponents/shop/shop.component';
+import { CartComponent } from './mainComponents/cart/cart.component';
+import { LoginComponent } from './mainComponents/login/login.component';
+import { AboutComponent } from './mainComponents/about/about.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        HomeComponent,
+        ShopComponent,
+        CartComponent,
+        LoginComponent,
+        AboutComponent
     ],
     imports: [
         BrowserModule,
