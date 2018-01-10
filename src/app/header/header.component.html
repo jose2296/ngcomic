@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="banner">
     <a class="navbar-brand"  routerLink="home">ngComics</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,17 +10,18 @@
                 <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="shop" routerLinkActive="active"><i class="fa fa-book" aria-hidden="true"></i> Store</a>
-            </li>
-            <li class="nav-item icon-item">
-                <a class="nav-link" routerLink="cart" routerLinkActive="active"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
-            </li>
-            <li class="nav-item icon-item">
-                <a class="nav-link" routerLink="login" routerLinkActive="active"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                <a class="nav-link" routerLink="shop" routerLinkActive="active"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Store</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search comics">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search comics" id="buscador">
         </form>
+
+      <div class="icon-item">
+        <a class="nav-link" routerLink="cart" routerLinkActive="active"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+      </div>
+      <div class="icon-item">
+        <a class="nav-link" routerLink="login" routerLinkActive="active"><i class="fa fa-user" aria-hidden="true"></i></a>
+      </div>
     </div>
 </nav>

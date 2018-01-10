@@ -1,0 +1,13 @@
+<ul>
+  <ng-container *ngFor="let comic of result">
+    <li>
+      <img src={{comic.url}}  alt=""><br>
+      {{comic.name}} <br>
+      DATE:{{comic.date}} <br>
+      RATE:{{comic.rate}} <br>
+      PRICE:{{comic.price}}<br>
+      {{filter}}
+      {{order}}
+    </li>
+  </ng-container>
+</ul>

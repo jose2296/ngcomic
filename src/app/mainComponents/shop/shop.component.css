@@ -1,0 +1,12 @@
+aside, #articulos{
+  text-align: center;
+  padding: 1rem;
+}
+
+aside *{
+  margin: 0.3rem 0;
+}
+
+#articulos{
+}
+

@@ -1,3 +1,10 @@
-<p>
-  shop works!
-</p>
+<div class="body">
+  <div class="row">
+    <aside class="col-sm-12 col-md-3">
+      <app-product-filter (filterChanged)="updateFilter($event)"></app-product-filter>
+    </aside>
+    <section class="col-sm-12 col-md-9" id="articulos">
+      <app-products [filter]="filter" [type]="'shop'"></app-products>
+    </section>
+  </div>
+</div>

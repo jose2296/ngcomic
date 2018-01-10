@@ -1,7 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
 
 
-import { HomeComponent, ShopComponent, CartComponent,LoginComponent,AboutComponent } from './mainComponents/pages';
+import { HomeComponent, ShopComponent, CartComponent, LoginComponent, AboutComponent } from './mainComponents/pages';
 
 const app_routes: Routes = [
     {path: 'home', component: HomeComponent },

@@ -1,3 +1,22 @@
 .nav-item{
     font-size: 1em;
 }
+
+.navbar-brand{
+  font-family: 'Bangers', cursive;
+  font-size: 1.5rem;
+}
+
+.icon-item, .icon-item a{
+  padding: 0;
+  list-style: none;
+}
+
+.icon-item{
+  font-size: 1.5rem;
+  margin: 0 1rem;
+}
+
+#buscador{
+  font-family: 'Bangers', cursive;
+}
