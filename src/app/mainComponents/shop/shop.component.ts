@@ -23,7 +23,7 @@ export class ShopComponent {
 
       }
       //this.datosPadre =  data; //--> esto seria un objeto no un array
-      console.log(this.datosPadre);
+      // console.log(this.datosPadre);
 
     });
 

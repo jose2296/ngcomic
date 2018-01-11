@@ -25,6 +25,10 @@ import {ProductsComponent} from './products/products.component';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 
 
+//services
+import { DataservicesService } from './_services/dataservices.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +58,7 @@ import {ProductDetailsComponent} from './product-details/product-details.compone
     }),
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [DataservicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
