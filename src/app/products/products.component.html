@@ -1,9 +1,11 @@
 <ul>
   <ng-container *ngFor="let comic of result">
-    <li>
-      <img src={{comic.url}}  alt=""><br>
-      {{comic.name}} <br>
-      DATE:{{comic.date}} <br>
+    <li [routerLink]="['/shop', comic.issueId]">
+      <p>
+        <img src={{comic.issueImage.original_url}}  alt="">
+      </p>
+      {{comic.issueName}} <br>
+      DATE:{{comic.coverDate}} <br>
       RATE:{{comic.rate}} <br>
       PRICE:{{comic.price}}<br>
       {{filter}}

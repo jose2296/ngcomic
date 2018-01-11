@@ -1,8 +1,16 @@
 li {
-  float: left
-
+  /* float: left */
+  flex: 1 1 25%;
+  padding: 1rem;
 }
 ul{
-
+  display: flex;
+  flex-wrap: wrap;
   list-style-type: none;
+
+  padding: 0;
+}
+
+img{
+  width: 100%;
 }

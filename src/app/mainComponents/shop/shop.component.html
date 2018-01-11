@@ -1,14 +1,11 @@
-<<<<<<< HEAD
 <div class="body">
   <div class="row">
     <aside class="col-sm-12 col-md-3">
       <app-product-filter (filterChanged)="updateFilter($event)"></app-product-filter>
     </aside>
     <section class="col-sm-12 col-md-9" id="articulos">
-      <app-products [filter]="filter" [type]="'shop'"></app-products>
+      <app-products [filter]="filter" [type]="'shop'" [datos]="datosPadre"></app-products>
     </section>
   </div>
 </div>
-=======
 <h1>Shop</h1>
->>>>>>> b9afe7e42bb343b4cf3ba34a3903dddc48859292

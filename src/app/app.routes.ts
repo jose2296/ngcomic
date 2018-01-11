@@ -1,11 +1,12 @@
 import {RouterModule, Routes} from '@angular/router';
 
 
-import { HomeComponent, ShopComponent, CartComponent, LoginComponent, AboutComponent } from './mainComponents/pages';
+import { HomeComponent, ShopComponent, CartComponent, LoginComponent, AboutComponent, ProductDetailsComponent } from './mainComponents/pages';
 
 const app_routes: Routes = [
     {path: 'home', component: HomeComponent },
     {path: 'shop', component: ShopComponent},
+    {path: 'shop/:id', component: ProductDetailsComponent},
     {path: 'cart', component: CartComponent},
     {path: 'login', component: LoginComponent},
     {path: 'about', component: AboutComponent},

@@ -10,6 +10,7 @@ export class ProductFilterComponent {
   filter: string;
 
   @Output() filterChanged = new EventEmitter();
+  @Output() orderChanged = new EventEmitter();
 
   constructor() {
     this.filter = '';
@@ -20,5 +21,10 @@ export class ProductFilterComponent {
     this.filter = value;
     this.filterChanged.emit(this.filter);
   }
+
+  updateOrder(value:string){
+    this.orderChanged.emit(value);
+  }
+  
 
 }
