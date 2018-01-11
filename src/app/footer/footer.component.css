@@ -6,3 +6,7 @@ footer{
 footer > *{
   padding:  0.715rem;
 }
+
+footer{
+  background: #fff;
+}

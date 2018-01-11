@@ -1,7 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 
 
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -10,56 +9,28 @@ import {Component, OnInit, Input} from '@angular/core';
 export class ProductsComponent implements OnInit {
 
   @Input() type: string;
+  @Input() datos: string;
+
   @Input() set filter(filter: string) {
     this.switchFilter(filter);
   }
 
+  p = 1;
+
   lastComics: number;
   visible: string;
   result: any = [];
-
-  comics:any = [];
-
-  @Input() datos:String;
-
+  comics: any = [];
 
   constructor() {
-      this.lastComics = 10;
-      this.visible = 'none';  
-  }
-
-  /*Función que retorna un array de objetos (arr) ordenado por un atributo(atr) */
-  orderArray(arr, atr = '') {
-    return arr.sort((a, b) => {
-        switch (atr) {
-          case 'price':
-            return (b.price - a.price);
-          case 'name':
-            return (b.issueName > a.issueName);
-          case'date':
-            return (b.coverDate > a.coverDate);
-          default :
-            return (b.rate - a.rate);
-
-        }
-      }
-    );
-  }
-
-  orderFilter(order) {
-      this.result = this.result.reverse();
-  }
-
-  /*Función que me permite cambiar el array result cuando se hace click */
-  switchFilter(filter) {
-    setTimeout(() => this.result = this.orderArray(this.comics, filter), 0);
+    this.lastComics = 10;
+    this.visible = 'none';
   }
 
   /* Valore la variable type para las distintas vistas */
   ngOnInit() {
 
     this.comics = this.datos;
-
 
     switch (this.type) {
       /*Muestra los ultimos 3 (lastComics) comics ordenados por fecha*/
@@ -73,8 +44,33 @@ export class ProductsComponent implements OnInit {
         break;
       default:
         this.result = this.comics;
-
     }
+  }
+
+  /*Función que retorna un array de objetos (arr) ordenado por un atributo(atr) */
+  orderArray(arr, atr = ''): any {
+    return arr.sort((a, b) => {
+        switch (atr) {
+          case 'price':
+            return (b.price - a.price);
+          case 'name':
+            return (b.issueName > a.issueName);
+          case'date':
+            return (b.coverDate > a.coverDate);
+          default :
+            return (b.rate - a.rate);
+        }
+      }
+    );
+  }
+
+  orderFilter(order): void {
+    this.result = this.result.reverse();
+  }
+
+  /*Función que me permite cambiar el array result cuando se hace click */
+  switchFilter(filter): void {
+    setTimeout(() => this.result = this.orderArray(this.comics, filter), 0);
   }
 }
 

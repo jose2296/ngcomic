@@ -1,15 +1,22 @@
-<ul>
-  <ng-container *ngFor="let comic of result">
-    <li [routerLink]="['/shop', comic.issueId]">
-      <p>
-        <img src={{comic.issueImage.original_url}}  alt="">
-      </p>
-      {{comic.issueName}} <br>
-      DATE:{{comic.coverDate}} <br>
-      RATE:{{comic.rate}} <br>
-      PRICE:{{comic.price}}<br>
-      {{filter}}
-      {{order}}
+<ul class="comic-list">
+  <ng-container *ngFor="let comic of result | paginate: { itemsPerPage: 8, currentPage: p }">
+    <li [routerLink]="['/shop', comic.issueId]" class="comic">
+      <header class="comic-name">
+        <span>{{comic.issueName}}</span>
+      </header>
+      <div class="comic-cover">
+        <img src={{comic.issueImage.original_url}}  alt="Comic Cover">
+      </div>
+      <div class="comic-price">
+        <span>{{comic.price | currency}}</span>
+      </div>
+      <!--DATE:{{comic.coverDate}} <br>-->
+      <!--RATE:{{comic.rate}} <br>-->
+      <!--PRICE:{{comic.price}}<br>-->
+      <!--{{filter}}-->
+      <!--{{order}}-->
     </li>
   </ng-container>
 </ul>
+
+<pagination-controls (pageChange)="p = $event" class="pagination-class"></pagination-controls>

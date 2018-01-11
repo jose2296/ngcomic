@@ -1,21 +1,23 @@
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-primary active" >
-    <input type="radio" name="direction" id="option1" autocomplete="off" checked=""><i class="fa fa-arrow-up" aria-hidden="true"></i> Asc
-  </label><label class="btn btn-primary">
-  <input type="radio" name="direction" id="option2" autocomplete="off"><i class="fa fa-arrow-down" aria-hidden="true"></i> Desc
-</label>
-</div>
-<div class="btn-group btn-group-toggle" data-toggle="buttons" id="filters">
-  <label class="btn btn-primary" (click)="updateFilter('date')">
-    <input type="radio" name="filters" id="date" autocomplete="off" checked="checked"><i class="fa fa-calendar-o" aria-hidden="true"></i> Date
+<section>
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-primary active" >
+      <input type="radio" name="direction" id="option1" autocomplete="off" checked=""><i class="fa fa-arrow-up" aria-hidden="true"></i> Asc
+    </label><label class="btn btn-primary">
+    <input type="radio" name="direction" id="option2" autocomplete="off"><i class="fa fa-arrow-down" aria-hidden="true"></i> Desc
   </label>
-  <label class="btn btn-primary active" (click)="updateFilter('price')">
-    <input type="radio" name="filters" id="price" autocomplete="off"><i class="fa fa-usd" aria-hidden="true"></i> Price
-  </label>
-  <label class="btn btn-primary" (click)="updateFilter('rate')">
-    <input type="radio" name="filters" id="rate" autocomplete="off"><i class="fa fa-star-half-o" aria-hidden="true"></i> Rate
-  </label>
-  <label class="btn btn-primary" (click)="updateFilter('name')">
-    <input type="radio" name="filters" id="name" autocomplete="off"><i class="fa fa-font" aria-hidden="true"></i> Name
-  </label>
-</div>
+  </div>
+  <div class="btn-group btn-group-toggle" data-toggle="buttons" id="filters">
+    <label class="btn btn-primary" (click)="updateFilter('date')">
+      <input type="radio" name="filters" id="date" autocomplete="off" checked="checked"><i class="fa fa-calendar-o" aria-hidden="true"></i> Date
+    </label>
+    <label class="btn btn-primary active" (click)="updateFilter('price')">
+      <input type="radio" name="filters" id="price" autocomplete="off"><i class="fa fa-usd" aria-hidden="true"></i> Price
+    </label>
+    <label class="btn btn-primary" (click)="updateFilter('rate')">
+      <input type="radio" name="filters" id="rate" autocomplete="off"><i class="fa fa-star-half-o" aria-hidden="true"></i> Rate
+    </label>
+    <label class="btn btn-primary" (click)="updateFilter('name')">
+      <input type="radio" name="filters" id="name" autocomplete="off"><i class="fa fa-font" aria-hidden="true"></i> Name
+    </label>
+  </div>
+</section>

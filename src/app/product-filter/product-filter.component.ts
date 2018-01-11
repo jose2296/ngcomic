@@ -1,11 +1,11 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-filter',
   templateUrl: './product-filter.component.html',
   styleUrls: ['./product-filter.component.css']
 })
-export class ProductFilterComponent {
+export class ProductFilterComponent implements OnInit{
 
   filter: string;
 
@@ -13,6 +13,9 @@ export class ProductFilterComponent {
   @Output() orderChanged = new EventEmitter();
 
   constructor() {
+  }
+
+  ngOnInit() {
     this.filter = '';
   }
 
@@ -22,9 +25,8 @@ export class ProductFilterComponent {
     this.filterChanged.emit(this.filter);
   }
 
-  updateOrder(value:string){
+  updateOrder(value: string ) {
     this.orderChanged.emit(value);
   }
-  
 
 }
