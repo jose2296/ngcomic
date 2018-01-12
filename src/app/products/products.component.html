@@ -1,5 +1,5 @@
 <ul class="comic-list">
-  <ng-container *ngFor="let comic of result | paginate: { itemsPerPage: 8, currentPage: p }">
+  <ng-container *ngFor="let comic of result | paginate: { itemsPerPage: 8, currentPage: defaultPage }">
     <li [routerLink]="['/shop', comic.issueId]" class="comic">
       <header class="comic-name">
         <span>{{comic.issueName}}</span>
@@ -19,4 +19,4 @@
   </ng-container>
 </ul>
 
-<pagination-controls (pageChange)="p = $event" class="pagination-class"></pagination-controls>
+<pagination-controls (pageChange)="defaultPage = $event" class="pagination-class"></pagination-controls>

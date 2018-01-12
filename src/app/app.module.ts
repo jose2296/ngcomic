@@ -26,40 +26,41 @@ import {ProductDetailsComponent} from './product-details/product-details.compone
 
 
 //services
-import { DataservicesService } from './_services/dataservices.service';
+import {DataservicesService} from './_services/dataservices.service';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    ShopComponent,
-    CartComponent,
-    LoginComponent,
-    AboutComponent,
-    ProductFilterComponent,
-    ProductsComponent,
-    ProductDetailsComponent
-  ],
-  imports: [
-    BrowserModule,
-    app_routing,
-    FormsModule,
-    AngularFireDatabaseModule,
-    AngularFireModule.initializeApp({
-      apiKey: 'AIzaSyCf9QMsCXaFSoMOcVcGDL9wVU5OVZgu_EA',
-      authDomain: 'ngcomics-a06af.firebaseapp.com',
-      databaseURL: 'https://ngcomics-a06af.firebaseio.com',
-      projectId: 'ngcomics-a06af',
-      storageBucket: 'ngcomics-a06af.appspot.com',
-      messagingSenderId: '918041929952'
-    }),
-    NgxPaginationModule
-  ],
-  providers: [DataservicesService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        HomeComponent,
+        ShopComponent,
+        CartComponent,
+        LoginComponent,
+        AboutComponent,
+        ProductFilterComponent,
+        ProductsComponent,
+        ProductDetailsComponent
+    ],
+    imports: [
+        BrowserModule,
+        app_routing,
+        FormsModule,
+        NgModule,
+        AngularFireDatabaseModule,
+        AngularFireModule.initializeApp({
+            apiKey: 'AIzaSyCf9QMsCXaFSoMOcVcGDL9wVU5OVZgu_EA',
+            authDomain: 'ngcomics-a06af.firebaseapp.com',
+            databaseURL: 'https://ngcomics-a06af.firebaseio.com',
+            projectId: 'ngcomics-a06af',
+            storageBucket: 'ngcomics-a06af.appspot.com',
+            messagingSenderId: '918041929952'
+        }),
+        NgxPaginationModule
+    ],
+    providers: [DataservicesService],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
