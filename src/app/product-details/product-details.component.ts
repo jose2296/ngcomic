@@ -21,7 +21,7 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private af: AngularFireDatabase,private _ds:DataservicesService) {
 
     route.params.subscribe(parametros => {
-      _ds.issues.valueChanges().subscribe(data =>{
+      _ds.issuesId.valueChanges().subscribe(data =>{
 
         this.comics = data;
         this.comic = this.comics[parametros.id];

@@ -1,5 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
 
+import { DataservicesService }  from '../_services/dataservices.service'
+
+
 
 @Component({
     selector: 'app-products',
@@ -27,31 +30,31 @@ export class ProductsComponent implements OnInit {
     comics: any = [];
     order1: boolean
 
-    constructor() {
-        this.lastComics = 10;
+    constructor(private _ds:DataservicesService) {
+        this.lastComics = 4;
         this.order1 = false;
-
-
     }
 
     /* Valore la variable type para las distintas vistas */
     ngOnInit() {
 
-        this.comics = this.datos;
 
-        switch (this.type) {
-            /*Muestra los ultimos 3 (lastComics) comics ordenados por fecha*/
-            case 'last':
-                this.result = this.orderArray(this.comics, 'date').slice(0, this.lastComics);
-                break;
-            /*Los inputs radio pasan a estra visibles (visible) y por rate(default)*/
-            case'shop':
-                this.switchFilter('price');
-                break;
-            default:
-                this.switchFilter('price');
+         this._ds.issues.valueChanges().subscribe(data =>{
+             let array = data;
+             this.comics=array.map((a)=> a)
+             switch (this.type) {
+                 /*Muestra los ultimos 3 (lastComics) comics ordenados por fecha*/
+                 case 'last':
+                     this.result = this.orderArray(this.comics, 'date').slice(0, this.lastComics);
+                     break;
+                 /*Los inputs radio pasan a estra visibles (visible) y por rate(default)*/
+                 case'shop':
+                     this.switchFilter('price');
+                     break;
+             }
 
-        }
+         });
+
     }
 
     dateToNumber(str): any {
