@@ -28,8 +28,21 @@
 
 
 #volume .visor .allImages{
-    display: flex;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
 }
+
+#volume .visor .allImages .imagesVolume{
+    display: inline-block;
+    width: 25%;
+    
+}
+#volume .visor .allImages img{
+    width: 100%;
+}
+
+
 
 .visor .principal{
     display: block;
@@ -43,6 +56,8 @@
     flex: 1;
     /* float: left; */
     width: 100%;
+
+    cursor: pointer;
 }
 
 .volInfo{
@@ -54,8 +69,19 @@
     border-bottom: 1px solid rgba(0, 0, 0,0.2)
 }
 
-.current{
-    background: lime;
+.vcomic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.currentComic{
+    background: rgba(0, 0, 0,0.2);
+}
+
+.routeComic{    
+    color: #fff;
+    background: #1a1a1a;
 }
 
 .nav-item{
@@ -65,4 +91,11 @@
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
     color: #fff;
     background-color: #070707;
+}
+
+
+
+
+.description{
+    padding: 1rem 0;
 }

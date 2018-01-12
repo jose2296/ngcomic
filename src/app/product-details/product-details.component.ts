@@ -18,7 +18,12 @@ export class ProductDetailsComponent implements OnInit {
   volume:any = [];
   volumeComics = [];
 
+  currentVComicImage;
+  currentVComic;
+
   constructor(private route: ActivatedRoute, private af: AngularFireDatabase,private _ds:DataservicesService) {
+
+
 
     route.params.subscribe(parametros => {
       _ds.issuesId.valueChanges().subscribe(data =>{
@@ -26,11 +31,14 @@ export class ProductDetailsComponent implements OnInit {
         this.comics = data;
         this.comic = this.comics[parametros.id];
 
+        this.currentVComic = this.comic;
+
         _ds.volumes.valueChanges().subscribe(volumes =>{
 
           this.volume = volumes[this.comic.volumeId];
 
           // console.log(this.volume);
+          this.volumeComics = [];        
           for (let i = 0; i < this.volume.volumeIssues.length; i++) {
             this.volumeComics.push(this.comics[this.volume.volumeIssues[i]])
           }
@@ -39,8 +47,15 @@ export class ProductDetailsComponent implements OnInit {
       });
     });
 
-    
   }
+
+
+  changeCurrentVComicImage(id){
+    console.log(id);
+    this.currentVComic = this.comics[id];
+    this.currentVComicImage = this.currentVComic.issueImage.small_url;
+  }
+
   ngOnInit() {}
 
 }
