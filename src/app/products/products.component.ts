@@ -49,7 +49,8 @@ export class ProductsComponent implements OnInit {
                 this.switchFilter('price');
                 break;
             default:
-                this.result = this.comics;
+                this.switchFilter('price');
+
         }
     }
 
@@ -87,7 +88,7 @@ export class ProductsComponent implements OnInit {
 
     /*Función que me permite cambiar el array result cuando se hace click */
     switchFilter(filter): void {
-        setTimeout(() => this.result = this.orderArray(this.comics, filter), 0);
+        this.result = this.orderArray(this.comics, filter);
     }
 }
 
