@@ -4,7 +4,7 @@
       <app-product-filter (filterChanged)="updateFilter($event)" (orderChanged)="updateOrder($event)"></app-product-filter>
     </aside>
     <section class="col-sm-12 col-md-9" id="articulos">
-      <app-products [filter]="filter" [type]="'shop'" [datos]="datosPadre" [order]="order">Loading...</app-products>
+      <app-products [filter]="filter" [type]="'shop'" [order]="order">Loading...</app-products>
     </section>
   </div>
 </div>

@@ -2,8 +2,6 @@ import {Component, OnInit, Input} from '@angular/core';
 
 import { DataservicesService }  from '../_services/dataservices.service'
 
-
-
 @Component({
     selector: 'app-products',
     templateUrl: './products.component.html',
@@ -12,7 +10,6 @@ import { DataservicesService }  from '../_services/dataservices.service'
 export class ProductsComponent implements OnInit {
 
     @Input() type: string;
-    @Input() datos: string;
 
     @Input()
     set filter(filter: string) {
@@ -37,8 +34,7 @@ export class ProductsComponent implements OnInit {
 
     /* Valore la variable type para las distintas vistas */
     ngOnInit() {
-
-
+        
          this._ds.issues.valueChanges().subscribe(data =>{
              let array = data;
              this.comics=array.map((a)=> a)
@@ -54,13 +50,10 @@ export class ProductsComponent implements OnInit {
              }
 
          });
-
     }
 
     dateToNumber(str): any {
-
         return new Date(str).getTime()
-
     }
 
     /*Función que retorna un array de objetos (arr) ordenado por un atributo(atr) */
