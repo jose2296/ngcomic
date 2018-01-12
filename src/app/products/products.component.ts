@@ -16,13 +16,21 @@ export class ProductsComponent implements OnInit {
         this.switchFilter(filter);
     }
 
+    @Input()
+    set order(order: boolean) {
+        this.orderFilter(order)
+    }
+
     defaultPage = 1;
     lastComics: number;
     result: any = [];
     comics: any = [];
+    order1: boolean
 
     constructor() {
         this.lastComics = 10;
+        this.order1 = false;
+
 
     }
 
@@ -62,7 +70,7 @@ export class ProductsComponent implements OnInit {
                     case'date':
                         let f1 = this.dateToNumber(b.coverDate)
                         let f2 = this.dateToNumber(a.coverDate)
-                        return (f1 > f2);
+                        return (f1 - f2);
                     default :
                         return (b.rate - a.rate);
                 }
@@ -71,7 +79,10 @@ export class ProductsComponent implements OnInit {
     }
 
     orderFilter(order): void {
-        this.result = this.result.reverse();
+        if (this.order1 !== order) {
+            this.result = this.result.reverse()
+            this.order1 = !this.order1
+        }
     }
 
     /*Función que me permite cambiar el array result cuando se hace click */

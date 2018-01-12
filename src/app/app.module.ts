@@ -47,7 +47,6 @@ import {DataservicesService} from './_services/dataservices.service';
         BrowserModule,
         app_routing,
         FormsModule,
-
         AngularFireDatabaseModule,
         AngularFireModule.initializeApp({
             apiKey: 'AIzaSyCf9QMsCXaFSoMOcVcGDL9wVU5OVZgu_EA',
