@@ -1,47 +1,61 @@
-.comic {
-  /* float: left */
-  flex: 1 1 25%;
-  padding: 1rem;
-  cursor: pointer;
-  transition: 0.5s;
+/*.comic {*/
+/*!* float: left *!*/
+/*flex: 1 1 25%;*/
+/*padding: 1rem;*/
+/*cursor: pointer;*/
+/*transition: 0.5s;*/
+/*}*/
+
+/*.comic:hover {*/
+/*transform: scale(1.1);*/
+/*}*/
+
+/*.comic-list {*/
+/*display: flex;*/
+/*flex-wrap: wrap;*/
+/*list-style-type: none;*/
+
+/*padding: 0;*/
+/*}*/
+
+/*img {*/
+/*width: 100%;*/
+/*}*/
+
+/*!*.comic-name, .comic-price {*!*/
+/*!*width: 100%;*!*/
+/*!*background: #1a1a1a;*!*/
+/*!*color: #fff;*!*/
+/*!*padding: 0.2rem;*!*/
+/*!*}*!*/
+
+/*!*.comic-name {*!*/
+/*!*border-top-right-radius: 2px;*!*/
+/*!*border-top-left-radius: 2px;*!*/
+/*!*font-family: 'Bangers', cursive;*!*/
+/*!*font-size: 1rem;*!*/
+/*!*}*!*/
+
+/*!*.comic-price {*!*/
+/*!*border-bottom-left-radius: 2px;*!*/
+/*!*border-bottom-right-radius: 2px;*!*/
+/*!*}*!*/
+
+/*!*El parametro deep permite sobrescribir estilos de otro componente distinto,*/
+/*nos permite saltarnos la encapsulacion de Angular.*!*/
+/*.pagination-class /deep/ .ngx-pagination .current {*/
+/*background: #1a1a1a;*/
+/*}*/
+
+/*.comic-cover *{*/
+/*border-radius: 5px;*/
+/*box-shadow: 0 5px 10px lightgrey;*/
+/*}*/
+
+.comic-cover *{
+  max-width: 100%;
 }
 
-
-.comic:hover{
-  transform: scale(1.1);
-}
-
-.comic-list{
-  display: flex;
-  flex-wrap: wrap;
-  list-style-type: none;
-
-  padding: 0;
-}
-
-img{
-  width: 100%;
-}
-
-.comic-name, .comic-price{
-  width: 100%;
-  background: #1a1a1a;
-  color: #fff;
-  padding: 0.2rem;
-}
-
-.comic-name{
-  border-top-right-radius: 2px;
-  border-top-left-radius: 2px;
-  font-family: 'Bangers', cursive;
-  font-size: 1rem;
-}
-
-.comic-price{
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-
-.pagination-class /deep/ .ngx-pagination .current{
-  background: #1a1a1a;
+/*TODO: Arreglar el row*/
+.row{
 }

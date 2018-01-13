@@ -1,22 +1,27 @@
-<ul class="comic-list">
-  <ng-container *ngFor="let comic of result | paginate: { itemsPerPage: 8, currentPage: defaultPage }">
-    <li [routerLink]="['/shop', comic.issueId]" class="comic">
-      <header class="comic-name">
-        <span>{{comic.issueName}}</span>
-      </header>
-      <div class="comic-cover">
-        <img src={{comic.issueImage.original_url}}  alt="Comic Cover">
-      </div>
-      <div class="comic-price">
-        <span>{{comic.price | currency}}</span>
-      </div>
-      DATE:{{comic.coverDate}}
-      <!--RATE:{{comic.rate}} <br>-->
-      <!--PRICE:{{comic.price}}<br>-->
-      <!--{{filter}}-->
-      {{order1}}
-    </li>
-  </ng-container>
-</ul>
+<h2 *ngIf="type == 'last'">Last Comics</h2>
 
-<pagination-controls (pageChange)="defaultPage = $event" class="pagination-class"></pagination-controls>
+<div class="comic-list row">
+  <ng-container *ngFor="let comic of result | paginate: { itemsPerPage: 8, currentPage: defaultPage }; let i = index">
+    <!--Todo: arreglar el row, crear un sistema en el que no haga falta clearfix-->
+    <div class="clearfix" *ngIf="i % 4 == 0"></div>
+      <div [routerLink]="['/shop', comic.issueId]" class="comic col-md-3">
+        <header class="comic-name">
+          <span>{{comic.issueName | slice:0:15}}</span>
+          <span>{{comic.price | currency}}</span>
+        </header>
+        <div class="comic-cover">
+          <img src={{comic.issueImage.original_url}} alt="Comic Cover">
+        </div>
+        <!--DATE:{{comic.coverDate}}-->
+        <!--RATE:{{comic.rate}} <br>-->
+        <!--PRICE:{{comic.price}}<br>-->
+        <!--{{filter}}-->
+        <!--{{order1}}-->
+      </div>
+  </ng-container>
+</div>
+
+<pagination-controls *ngIf="type != 'last'"
+                     (pageChange)="defaultPage = $event"
+                     class="pagination-class">
+</pagination-controls>
