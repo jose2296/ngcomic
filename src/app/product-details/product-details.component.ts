@@ -21,6 +21,10 @@ export class ProductDetailsComponent implements OnInit {
   currentVComicImage;
   currentVComic;
 
+
+  defaultPage = 1;
+
+
   constructor(private route: ActivatedRoute, private af: AngularFireDatabase,private _ds:DataservicesService) {
 
 

@@ -29,7 +29,7 @@
 
 #volume .visor .allImages{
     display: block;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     white-space: nowrap;
 }
 
@@ -99,3 +99,16 @@
 .description{
     padding: 1rem 0;
 }
+
+
+.pagination-class /deep/ .ngx-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.pagination-class /deep/ .ngx-pagination .current{
+    background: #1a1a1a;
+  }
+  

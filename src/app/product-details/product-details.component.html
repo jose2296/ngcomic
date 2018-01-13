@@ -44,9 +44,10 @@
       </div>
 
       <div class="allImages">
-        <div class="imagesVolume" *ngFor="let vComic of volumeComics; let i = index" > <!-- [ngStyle]="{width: 100 / volumeComics.length + '%'}" -->
+        <div class="imagesVolume" *ngFor="let vComic of volumeComics | paginate: { itemsPerPage: 4, currentPage: defaultPage }" > <!-- [ngStyle]="{width: 100 / volumeComics.length + '%'}" -->
           <img src="{{vComic.issueImage.small_url}}" alt="" (click)="changeCurrentVComicImage(vComic.issueId)">
         </div>
+        <pagination-controls  previousLabel="" nextLabel="" (pageChange)="defaultPage = $event" class="pagination-class"></pagination-controls>        
       </div>
 
     </div>
