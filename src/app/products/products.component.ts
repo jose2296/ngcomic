@@ -39,7 +39,7 @@ export class ProductsComponent implements OnInit {
 
     this._ds.issues.valueChanges().subscribe(data => {
       let array = data;
-      this.comics = array.map((a) => a);
+      this.comics = array.slice();
       switch (this.type) {
         /*Muestra los ultimos 3 (lastComics) comics ordenados por fecha*/
         case 'last':
@@ -65,7 +65,7 @@ export class ProductsComponent implements OnInit {
           case 'price':
             return (b.price - a.price);
           case 'name':
-            return (b.issueName.charCodeAt(0) > a.issueName.charCodeAt(0));
+            return (b.issueName.charCodeAt(0) - a.issueName.charCodeAt(0));
           case'date':
             let f1 = this.dateToNumber(b.coverDate);
             let f2 = this.dateToNumber(a.coverDate);
