@@ -1,5 +1,5 @@
 <div class="cart">
-    <div class="row">
+  <!-- <div class="row">
             <div class="col-md-8">
                 <h1>Cart</h1>
             </div>
@@ -40,6 +40,36 @@
                     <p>{{comic.price}}</p>
                 </div>
         </div>
-    </div>
-        
+    </div> -->
+
+    <div class="row">
+            <div class="col-md-8">
+                <h1>Cart</h1>
+            </div>
+            <div class="col-mf-4">
+                <h3>Total: {{total| currency}}</h3>
+            </div>
+        </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="comic" *ngFor="let comic of cartComics" >
+        <td class="img">
+          <img [src]="comic.img" alt="" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+        </td>
+        <td>{{comic.issueName}} <br> {{comic.volumeName}}</td>
+        <td>1</td>
+        <td>{{comic.price}}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>
