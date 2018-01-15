@@ -45,7 +45,7 @@
 nos permite saltarnos la encapsulacion de Angular.*/
 .pagination-class /deep/ .ngx-pagination .current {
 background: #1a1a1a;
-  padding: 1.5rem 1rem;
+margin-top: 1.5rem;
 }
 
 /*.comic-cover *{*/
