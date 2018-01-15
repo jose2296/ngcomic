@@ -27,6 +27,25 @@ export class ProductsComponent implements OnInit {
     result: any = [];
     comics: any = [];
     localOrder: boolean;
+    wordSearch: string;
+
+    searchCondition(str,searchWord=this.wordSearch) {
+        return (str.toLowerCase().indexOf(searchWord.toLowerCase()) >= 0)
+    }
+
+    search(): void {
+
+        this.result = this.comics.filter((a) => {
+
+            if (this.searchCondition(a.issueDescription)||
+                this.searchCondition(a.issueName)||
+                this.searchCondition(a.volumeName)){
+                return a
+            }
+        })
+        console.log(this.result)
+    }
+
 
     constructor(private _ds: DataservicesService) {
         this.lastComics = 4;
@@ -88,7 +107,7 @@ export class ProductsComponent implements OnInit {
     switchFilter(filter): void {
         this.result = this.orderArray(this.comics, filter)
         if (!this.localOrder) this.result = this.result.reverse();
-     }
+    }
 
 }
 
