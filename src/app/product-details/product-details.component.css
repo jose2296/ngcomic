@@ -1,3 +1,6 @@
+.row{
+    margin: 0;
+}
 #comic img{
     display: block;
     margin: auto;
@@ -10,19 +13,15 @@
     
 }
 
-#comic > div{
-    float: left;
-    width: 50%;
+#comic > div > div{
     padding: 1rem;
     /* flex: 1; */
 }
 
 
-#volume > div{
+#volume > div > div{
     padding: 1rem;
 
-    width: 50%;
-    float: left;
 }
 
 
@@ -61,8 +60,31 @@
 }
 
 .volInfo{
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
+
+.addCart button{
+    padding: 1rem;
+}
+
+.title ,.addCart{
+    text-align: center;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.vComicTitle{
+    padding-bottom: 1rem;
+}
+
+.vcomic button{
+    width: 50%;
+}
+
+
 
 #volume .comicsVolume .vcomic{
     padding: 1rem;
@@ -70,6 +92,8 @@
 }
 
 .vcomic{
+    margin: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
