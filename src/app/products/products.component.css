@@ -41,20 +41,18 @@
 /*!*border-bottom-right-radius: 2px;*!*/
 /*!*}*!*/
 
-/*!*El parametro deep permite sobrescribir estilos de otro componente distinto,*/
-/*nos permite saltarnos la encapsulacion de Angular.*!*/
-/*.pagination-class /deep/ .ngx-pagination .current {*/
-/*background: #1a1a1a;*/
-/*}*/
+/*El parametro deep permite sobrescribir estilos de otro componente distinto,
+nos permite saltarnos la encapsulacion de Angular.*/
+.pagination-class /deep/ .ngx-pagination .current {
+background: #1a1a1a;
+  padding: 1.5rem 1rem;
+}
 
 /*.comic-cover *{*/
 /*border-radius: 5px;*/
 /*box-shadow: 0 5px 10px lightgrey;*/
 /*}*/
 
-.comic-cover *{
-  max-width: 100%;
-}
 
 /*TODO: Arreglar el row*/
 .row{

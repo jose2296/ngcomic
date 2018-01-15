@@ -4,7 +4,7 @@
     <ng-container *ngFor="let comic of result | paginate: { itemsPerPage: 8, currentPage: defaultPage }; let i = index">
         <!--Todo: arreglar el row, crear un sistema en el que no haga falta clearfix-->
         <div class="clearfix" *ngIf="i % 4 == 0"></div>
-        <app-comic [comic]="comic"></app-comic>
+        <app-comic [comic]="comic" class="col-md-3"></app-comic>
     </ng-container>
 </div>
 
