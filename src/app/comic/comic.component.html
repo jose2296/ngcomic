@@ -1,0 +1,9 @@
+<div [routerLink]="['/shop', id]" class="comic col-md-3">
+    <header class="comic-name">
+        <span>{{name | slice:0:15}}</span>
+        <span>{{price | currency}}</span>
+    </header>
+    <div class="comic-cover">
+        <img src={{image}} alt="Comic Cover">
+    </div>
+</div>

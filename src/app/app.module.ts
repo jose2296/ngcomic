@@ -27,6 +27,7 @@ import {ProductDetailsComponent} from './product-details/product-details.compone
 
 //services
 import {DataservicesService} from './_services/dataservices.service';
+import { ComicComponent } from './comic/comic.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {DataservicesService} from './_services/dataservices.service';
         AboutComponent,
         ProductFilterComponent,
         ProductsComponent,
-        ProductDetailsComponent
+        ProductDetailsComponent,
+        ComicComponent
     ],
     imports: [
         BrowserModule,
