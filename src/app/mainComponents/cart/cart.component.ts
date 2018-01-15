@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component,OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  cartComics = [{
+      issueName: "Strange Visitor",
+      volumeName: "Kingdom Come",
+      img: "https://comicvine.gamespot.com/api/image/scale_small/3446484-01.jpg",
+      price: 5
+    },
+    {
+      issueName: "Strange Visitor",
+      volumeName: "Kingdom Come",
+      img: "https://comicvine.gamespot.com/api/image/scale_small/3446484-01.jpg",
+      price: 5
+    }
+  ];
 
-  ngOnInit() {
-  }
+  constructor() {}
+
+  ngOnInit() {}
 
 }
