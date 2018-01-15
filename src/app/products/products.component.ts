@@ -59,6 +59,7 @@ export class ProductsComponent implements OnInit {
 
     /*Función que retorna un array de objetos (arr) ordenado por un atributo(atr) */
     orderArray(arr, atr = ''): any {
+
         return arr.sort((a, b) => {
                 switch (atr) {
                     case 'price':
@@ -85,7 +86,9 @@ export class ProductsComponent implements OnInit {
 
     /*Función que me permite cambiar el array result cuando se hace click */
     switchFilter(filter): void {
-        this.result = this.orderArray(this.comics, filter);
-    }
+        this.result = this.orderArray(this.comics, filter)
+        if (!this.localOrder) this.result = this.result.reverse();
+     }
+
 }
 
