@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header,.comic{
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.img{
+   width: 10%; 
+}
+img{
+    width: 100%;
+}
+
+.comic > *{
+    padding: 1rem;
+}
+.product p{
+}
+

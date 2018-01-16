@@ -24,6 +24,8 @@ export class ProductDetailsComponent implements OnInit {
 
   defaultPage = 1;
 
+  complete: boolean = false;
+
 
   constructor(private route: ActivatedRoute, private af: AngularFireDatabase,private _ds:DataservicesService) {
 
@@ -46,6 +48,8 @@ export class ProductDetailsComponent implements OnInit {
           for (let i = 0; i < this.volume.volumeIssues.length; i++) {
             this.volumeComics.push(this.comics[this.volume.volumeIssues[i]])
           }
+
+          this.complete = true;
           
         });
       });
