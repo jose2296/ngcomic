@@ -1,6 +1,6 @@
 <h2 *ngIf="type == 'last'">Last Comics</h2>
-<input type="text" [(ngModel)]="wordSearch" name="word" (keyup)="search()">
-{{wordSearch}}
+<!-- <input type="text" [(ngModel)]="wordSearch" name="word" (keyup)="search()">
+{{wordSearch}} -->
 <div class="comic-list row">
   <ng-container *ngFor="let comic of result | paginate: { itemsPerPage: 8, currentPage: defaultPage }; let i = index">
     <!--Todo: arreglar el row, crear un sistema en el que no haga falta clearfix-->

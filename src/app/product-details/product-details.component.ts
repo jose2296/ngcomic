@@ -57,6 +57,9 @@ export class ProductDetailsComponent implements OnInit {
 
   }
 
+  ngOnInit() {}
+  
+
 
   changeCurrentVComicImage(id){
     console.log(id);
@@ -64,6 +67,25 @@ export class ProductDetailsComponent implements OnInit {
     this.currentVComicImage = this.currentVComic.issueImage.small_url;
   }
 
-  ngOnInit() {}
+
+  ids = [];
+  addCart(id){
+      if (localStorage.getItem("cart") == null) {
+        localStorage.setItem("cart", id);
+        this.ids[id] = 0;
+      }else{
+        if(localStorage.getItem("cart").split(",").indexOf(id.toString()) >= 0){
+          this.ids[id]++;
+        }else{
+          localStorage.setItem("cart", localStorage.getItem("cart") + "," + id);
+          this.ids[id] = 0;          
+        }
+      }  
+            
+  }
+
+
+
+
 
 }

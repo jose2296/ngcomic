@@ -21,3 +21,20 @@ img{
 .product p{
 }
 
+th.textCenter, td.textCenter{
+    text-align: center;    
+}
+
+.table td.volumeInfo, table th.volumeInfo{
+    padding-left: 2rem;
+    text-align: left;
+}
+
+td{
+    text-align: center;
+}
+
+
+.table th, .table td {
+    padding: 1rem 0.5rem;
+}
