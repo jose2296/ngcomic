@@ -29,19 +29,21 @@ export class ProductsComponent implements OnInit {
     localOrder: boolean;
     wordSearch: string;
 
-    searchCondition(str, searchWord = this.wordSearch) {
+    searchCondition(str,searchWord=this.wordSearch) {
         return (str.toLowerCase().indexOf(searchWord.toLowerCase()) >= 0)
     }
 
     search(): void {
 
-            this.result = this.comics.filter((a) => {
-                if (this.searchCondition(a.issueDescription) ||
-                    this.searchCondition(a.issueName) ||
-                    this.searchCondition(a.volumeName)) {
-                    return a
-                }
-            })
+        this.result = this.comics.filter((a) => {
+
+            if (this.searchCondition(a.issueDescription)||
+                this.searchCondition(a.issueName)||
+                this.searchCondition(a.volumeName)){
+                return a
+            }
+        })
+        console.log(this.result)
     }
 
 
