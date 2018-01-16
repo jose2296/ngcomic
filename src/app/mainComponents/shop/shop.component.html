@@ -1,7 +1,7 @@
 <div class="body">
   <div class="row">
     <aside class="col-sm-12 col-md-3">
-      <app-product-filter (filterChanged)="updateFilter($event)" (orderChanged)="updateOrder($event)"></app-product-filter>
+
     </aside>
     <section class="col-sm-12 col-md-9" id="articulos">
       <app-products [filter]="filter" [type]="'shop'" [order]="order">Loading...</app-products>
