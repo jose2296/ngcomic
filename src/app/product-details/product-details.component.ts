@@ -26,6 +26,8 @@ export class ProductDetailsComponent implements OnInit {
 
   complete: boolean = false;
 
+  ids:any = [];
+  
 
   constructor(private route: ActivatedRoute, private af: AngularFireDatabase,private _ds:DataservicesService) {
 
@@ -68,7 +70,6 @@ export class ProductDetailsComponent implements OnInit {
   }
 
 
-  ids = [];
   addCart(id){
       if (localStorage.getItem("cart") == null) {
         localStorage.setItem("cart", id);

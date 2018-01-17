@@ -46,7 +46,7 @@
     <div class="col-md-8">
       <h1>Cart</h1>
     </div>
-    <div class="col-mf-4">
+    <div class="col-md-4">
       <h3>Total: {{total| currency}}</h3>
     </div>
   </div>
@@ -63,7 +63,7 @@
     <tbody>
       <ng-container *ngIf="cartComics.length > 0">
         <tr class="comic" *ngFor="let comic of cartComics">
-          <td class="img">
+          <td class="img" [routerLink]="['/shop', comic.issueId]">
             <img [src]="comic.issueImage.small_url" alt="" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
           </td>
           <td class="volumeInfo">
