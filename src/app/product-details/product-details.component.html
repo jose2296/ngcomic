@@ -1,3 +1,10 @@
+<div class="alert alert-dismissible alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Well done!</strong> You successfully read
+  <a class="alert-link">this important alert message</a>.
+</div>
+
+
 <!-- Nav tabs -->
 <ul class="nav nav-tabs nav-justified">
   <li class="nav-item">
@@ -19,82 +26,85 @@
     <div *ngIf="!complete">
       <img src="assets/loading.gif" alt="">
     </div>
-    
-    
+
+
     <div *ngIf="complete" class="row">
-        <div class="col-md-6">
-            <img src="{{ comic.issueImage.small_url}}" alt="">
+      <div class="col-md-6">
+        <img src="{{ comic.issueImage.small_url}}" alt="">
+      </div>
+
+      <div class="col-md-6">
+        <div class="name">
+          <h2>{{comic.issueName}}</h2>
+        </div>
+        <div class="rate-price row">
+          <div class="rate col-md-6">
+            Rate: {{comic.rate}}
+          </div>
+          <div class="price col-md-6">
+            Price: {{comic.price | currency}}
           </div>
 
-          <div class="col-md-6">
-            <div class="name">
-              <h2>{{comic.issueName}}</h2>
-            </div>
-            <div class="rate-price row">
-              <div class="rate col-md-6">
-                  Rate: {{comic.rate}}
-              </div>
-              <div class="price col-md-6">
-                  Price: {{comic.price | currency}}
-              </div>
-               
-            </div>
-            <div class="description" [innerHTML]="comic.issueDescription"></div>
-      
-            <div class="deseados">
-              <button type="button" class="btn btn-secondary">Añadir a deseados</button>
-              <button type="button" class="btn btn-primary" (click)="addCart(comic.issueId)">Add cart</button>
-            </div>
-          </div>
+        </div>
+        <div class="description" [innerHTML]="comic.issueDescription"></div>
+
+        <div class="deseados">
+          <button type="button" class="btn btn-secondary">Add to wish list</button>
+          <button type="button" class="btn btn-primary" (click)="addCart(comic.issueId)">Add to cart</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Tab Volumen -->
   <div class="tab-pane fade" id="volume" role="tabpanel">
 
-      <div *ngIf="!complete">
-          <img src="assets/loading.gif" alt="">
-        </div>
-
-     <div *ngIf="complete" class="row">
-
-    <div class="visor col-md-6">
-      <div class="principal">
-        <img [src]=currentVComic.issueImage.small_url alt="">
-      </div>
-
-      <div class="allImages">
-        <div class="imagesVolume" *ngFor="let vComic of volumeComics | paginate: { itemsPerPage: 4, currentPage: defaultPage }" > <!-- [ngStyle]="{width: 100 / volumeComics.length + '%'}" -->
-          <img src="{{vComic.issueImage.small_url}}" alt="" (click)="changeCurrentVComicImage(vComic.issueId)">
-        </div>
-        <pagination-controls  previousLabel="" nextLabel="" (pageChange)="defaultPage = $event" class="pagination-class"></pagination-controls>        
-      </div>
-
+    <div *ngIf="!complete">
+      <img src="assets/loading.gif" alt="">
     </div>
 
-    <div class="volume col-md-6">
+    <div *ngIf="complete" class="row">
 
-      <div class="volInfo row">
-        <h1 class="title col-md-12 col-lg-8">
-          {{volume.volumeName}}
-        </h1>
-        <div class="addCart col-md-12 col-lg-4">
-          <button type="button" class="btn btn-primary">Añadir al carro</button>
+      <div class="visor col-md-6">
+        <div class="principal">
+          <img [src]=currentVComic.issueImage.small_url alt="">
         </div>
+
+        <div class="allImages">
+          <div class="imagesVolume" *ngFor="let vComic of volumeComics | paginate: { itemsPerPage: 4, currentPage: defaultPage }">
+            <!-- [ngStyle]="{width: 100 / volumeComics.length + '%'}" -->
+            <img src="{{vComic.issueImage.small_url}}" alt="" (click)="changeCurrentVComicImage(vComic.issueId)">
+          </div>
+          <pagination-controls previousLabel="" nextLabel="" (pageChange)="defaultPage = $event" class="pagination-class"></pagination-controls>
+        </div>
+
       </div>
 
-      <div class="comicsVolume">
-        <div *ngFor="let vComic of volumeComics">
-          <div class="vcomic row" [ngClass]="{'currentComic': vComic.issueName === currentVComic.issueName, 'routeComic': vComic.issueName === comic.issueName}" ><!-- *ngIf="vComic.issueName === currentVComic.issueName" -->
-            <div class="vComicTitle col-md-8">
-              {{vComic.issueName}}
-            </div>
-            <button [routerLink]="['/shop', vComic.issueId]" type="button" class="col-md-4 btn btn-primary" onclick="$('#comic-tab').trigger('click')"  [ngClass]="{'btn-secondary': vComic.issueName === comic.issueName}">view</button>             
+      <div class="volume col-md-6">
+
+        <div class="volInfo row">
+          <h1 class="title col-md-12 col-lg-8">
+            {{volume.volumeName}}
+          </h1>
+          <div class="addCart col-md-12 col-lg-4">
+            <button type="button" class="btn btn-primary">Add to cart</button>
           </div>
         </div>
-      </div>
 
+        <div class="comicsVolume">
+          <div *ngFor="let vComic of volumeComics">
+            <div class="vcomic row" [ngClass]="{'currentComic': vComic.issueName === currentVComic.issueName, 'routeComic': vComic.issueName === comic.issueName}">
+              <!-- *ngIf="vComic.issueName === currentVComic.issueName" -->
+              <div class="vComicTitle col-md-8">
+                {{vComic.issueName}}
+              </div>
+              <button [routerLink]="['/shop', vComic.issueId]" type="button" class="col-md-4 btn btn-primary" onclick="$('#comic-tab').trigger('click')"
+                [ngClass]="{'btn-secondary': vComic.issueName === comic.issueName}">view</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
   </div>
 </div>
