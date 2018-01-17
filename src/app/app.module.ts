@@ -34,6 +34,7 @@ import { NewsArticleComponent } from './common/news/news-article/news-article.co
 import { AdComponent } from './common/news/ad/ad.component';
 import { CookieAlertComponent } from './common/cookie-alert/cookie-alert.component';
 import { StarsPipe } from './common/stars.pipe';
+import {SearchService} from "./_services/search.service";
 
 
 @NgModule({
@@ -72,7 +73,7 @@ import { StarsPipe } from './common/stars.pipe';
         }),
         NgxPaginationModule
     ],
-    providers: [DataservicesService],
+    providers: [DataservicesService,SearchService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

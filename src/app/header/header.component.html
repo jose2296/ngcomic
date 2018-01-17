@@ -19,7 +19,7 @@
   </li>
 </ul>
 <form class="form-inline my-2 my-lg-0">
-<input class="form-control mr-sm-2" type="text" placeholder="Search comics" id="buscador">
+<input class="form-control mr-sm-2" type="text"(keyup)="updateString()"  [(ngModel)]="stringSearch" name="string"  placeholder="Search comics" id="buscador">
 </form>
 
 
