@@ -29,6 +29,8 @@ import {ProductDetailsComponent} from './product-details/product-details.compone
 import {DataservicesService} from './_services/dataservices.service';
 import { ComicComponent } from './comic/comic.component';
 import { ImageComponent } from './common/image/image.component';
+import { NewsComponent } from './common/news/news.component';
+import { NewsArticleComponent } from './common/news/news-article/news-article.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { ImageComponent } from './common/image/image.component';
         ProductsComponent,
         ProductDetailsComponent,
         ComicComponent,
-        ImageComponent
+        ImageComponent,
+        NewsComponent,
+        NewsArticleComponent
     ],
     imports: [
         BrowserModule,

@@ -1,5 +1,6 @@
 
 .comic-cover {
+  cursor: pointer;
 }
 
 app-image /deep/ * {
