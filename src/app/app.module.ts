@@ -33,6 +33,7 @@ import { NewsComponent } from './common/news/news.component';
 import { NewsArticleComponent } from './common/news/news-article/news-article.component';
 import { AdComponent } from './common/news/ad/ad.component';
 import { CookieAlertComponent } from './common/cookie-alert/cookie-alert.component';
+import { StarsPipe } from './common/stars.pipe';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { CookieAlertComponent } from './common/cookie-alert/cookie-alert.compone
         NewsComponent,
         NewsArticleComponent,
         AdComponent,
-        CookieAlertComponent
+        CookieAlertComponent,
+        StarsPipe
     ],
     imports: [
         BrowserModule,
