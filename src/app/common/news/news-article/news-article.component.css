@@ -17,6 +17,11 @@ article > img{
   margin: 1rem;
   border-radius: 5px;
   border: 1px solid white;
+  transition: 0.6s;
+}
+
+article > img:hover{
+  transform: scale(2);
 }
 
 .body{
@@ -40,5 +45,5 @@ article > img{
 }
 
 .more{
-  float: right;
+  text-align: center;
 }

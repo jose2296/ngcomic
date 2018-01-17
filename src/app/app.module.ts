@@ -32,6 +32,7 @@ import { ImageComponent } from './common/image/image.component';
 import { NewsComponent } from './common/news/news.component';
 import { NewsArticleComponent } from './common/news/news-article/news-article.component';
 import { AdComponent } from './common/news/ad/ad.component';
+import { CookieAlertComponent } from './common/cookie-alert/cookie-alert.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { AdComponent } from './common/news/ad/ad.component';
         ImageComponent,
         NewsComponent,
         NewsArticleComponent,
-        AdComponent
+        AdComponent,
+        CookieAlertComponent
     ],
     imports: [
         BrowserModule,
