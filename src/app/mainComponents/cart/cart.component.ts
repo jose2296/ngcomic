@@ -9,23 +9,11 @@ import {DataservicesService} from '../../_services/dataservices.service'
 })
 export class CartComponent implements OnInit {
 
-  // cartComics = [{
-  //     issueName: "Strange Visitor",
-  //     volumeName: "Kingdom Come",
-  //     img: "https://comicvine.gamespot.com/api/image/scale_small/3446484-01.jpg",
-  //     price: 5
-  //   },
-  //   {
-  //     issueName: "Strange Visitor",
-  //     volumeName: "Kingdom Come",
-  //     img: "https://comicvine.gamespot.com/api/image/scale_small/3446484-01.jpg",
-  //     price: 5
-  //   }
-  // ];
-
   cartComics = [];
 
   cartComicsId: any;
+
+  quantity: any = [];
 
   total:number = 0;
 
@@ -33,19 +21,35 @@ export class CartComponent implements OnInit {
 
     this.total = 0;
 
-    this.cartComicsId = localStorage.getItem("cart") ? localStorage.getItem("cart").split(",") : "";
+    let cCartIds = localStorage.getItem("cart") ? localStorage.getItem("cart").split(",") : [];
 
-    console.log(this.cartComicsId);
+    for (let i = 0; i < cCartIds.length; i++) {
+      this.quantity[cCartIds[i]] = 1;
+    }
+
+    
+    for (let i = 0; i < cCartIds.length; i++) {
+      for (let j = i+1; j < cCartIds.length; j++) {
+        if (cCartIds[i] == cCartIds[j]) {
+          console.log("igual");
+          this.quantity[cCartIds[i]]++;
+          cCartIds.splice(i,1);
+          i--;
+          j--;
+        } 
+      }     
+    }
+
+    this.cartComicsId = cCartIds;
+
+
     
     _ds.issuesId.valueChanges().subscribe(comics=>{
 
       for (let i = 0; i < this.cartComicsId.length; i++) {
         this.cartComics.push(comics[this.cartComicsId[i]]);
-        this.total += comics[this.cartComicsId[i]].price
+        this.total += comics[this.cartComicsId[i]].price * this.quantity[comics[this.cartComicsId[i]].issueId]
       }
-
-
-      console.log(this.cartComics,this.total);
 
     })
 
@@ -53,4 +57,51 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {}
 
+
+
+  deleteQuantity(id){
+    
+    let cCartIds = localStorage.getItem("cart") ? localStorage.getItem("cart").split(",") : [];
+    console.log(cCartIds,id);
+
+    cCartIds.splice(cCartIds.indexOf(id.toString()),1);
+
+    localStorage.setItem("cart",cCartIds.join(","));
+    
+
+    for (let i = 0; i < cCartIds.length; i++) {
+      this.quantity[cCartIds[i]] = 1;
+    }
+
+    
+    for (let i = 0; i < cCartIds.length; i++) {
+      for (let j = i+1; j < cCartIds.length; j++) {
+        if (cCartIds[i] == cCartIds[j]) {
+          console.log("igual");
+          this.quantity[cCartIds[i]]++;
+          cCartIds.splice(i,1);
+          i--;
+          j--;
+        } 
+      }     
+    }
+
+
+    
+
+    this.cartComicsId = cCartIds;
+    
+    this.total = 0;
+
+    this.cartComics = []
+
+    this._ds.issuesId.valueChanges().subscribe(comics=>{
+
+      for (let i = 0; i < this.cartComicsId.length; i++) {
+        this.cartComics.push(comics[this.cartComicsId[i]]);
+        this.total += comics[this.cartComicsId[i]].price * this.quantity[comics[this.cartComicsId[i]].issueId]
+      }
+
+    })
+  }
 }

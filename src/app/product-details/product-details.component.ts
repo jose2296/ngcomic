@@ -28,8 +28,6 @@ export class ProductDetailsComponent implements OnInit {
 
   complete: boolean = false;
 
-  ids:any = [];
-  
 
   constructor(private route: ActivatedRoute, private af: AngularFireDatabase,private _ds:DataservicesService) {
 
@@ -73,19 +71,12 @@ export class ProductDetailsComponent implements OnInit {
 
 
   addCart(id){
-      if (localStorage.getItem("cart") == null) {
+      if (localStorage.getItem("cart") == "" || localStorage.getItem("cart") == null ) {
         localStorage.setItem("cart", id);
-        this.ids[id] = 0;
       }else{
-        if(localStorage.getItem("cart").split(",").indexOf(id.toString()) >= 0){
-          this.ids[id]++;
-        }else{
-          localStorage.setItem("cart", localStorage.getItem("cart") + "," + id);
-          this.ids[id] = 0;          
-        }
+        localStorage.setItem("cart", localStorage.getItem("cart") + "," + id);
       }  
 
-      console.log(this.ids);       
   }
 
 

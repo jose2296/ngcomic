@@ -38,3 +38,8 @@ td{
 .table th, .table td {
     padding: 1rem 0.5rem;
 }
+
+.quantitydelete{
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+}
