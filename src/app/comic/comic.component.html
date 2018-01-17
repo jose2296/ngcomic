@@ -1,10 +1,18 @@
 <div [routerLink]="['/shop', id]" class="comic">
-    <!--<header class="comic-name">-->
-      <!--<span>{{price | currency}}</span>-->
-      <!--<span>{{name}}</span>-->
-    <!--</header>-->
-    <div class="comic-cover">
-        <!--<img src={{image}} alt="Comic Cover">-->
-        <app-image [image]="image"></app-image>
+  <!--<header class="comic-name">-->
+  <!--<span>{{price | currency}}</span>-->
+  <!--<span>{{name}}</span>-->
+  <!--</header>-->
+  <div class="comic-cover">
+    <!--<img src={{image}} alt="Comic Cover">-->
+    <app-image [image]="image"></app-image>
+  </div>
+  <div class="details">
+    <div class="name">
+      <span>{{name}}</span>
     </div>
+    <div class="price">
+      <span>{{price | currency}}</span>
+    </div>
+  </div>
 </div>
