@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,EventEmitter } from '@angular/core';
 
 import { AngularFireDatabase  } from "angularfire2/database";
 
@@ -9,10 +9,12 @@ export class DataservicesService {
     issuesId:any = [];
     issues:any = [];
     volumes:any = [];
+    news:any = [];
 
   constructor(af:AngularFireDatabase) {
       this.issues = af.list("/issues");
       this.issuesId = af.object("/issues");
       this.volumes = af.object("/volumes");
+      this.news = af.list("/news"); 
    }
 }

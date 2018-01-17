@@ -4,7 +4,9 @@ import {ActivatedRoute} from '@angular/router';
 
 import {AngularFireDatabase} from "angularfire2/database";
 
-import { DataservicesService }  from '../_services/dataservices.service'
+import { DataservicesService }  from '../_services/dataservices.service';
+
+
 
 @Component({
   selector: 'app-product-details',
@@ -82,7 +84,8 @@ export class ProductDetailsComponent implements OnInit {
           this.ids[id] = 0;          
         }
       }  
-            
+
+      console.log(this.ids);       
   }
 
 

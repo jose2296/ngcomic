@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
 
 
       console.log(this.cartComics,this.total);
-      
+
     })
 
   }
