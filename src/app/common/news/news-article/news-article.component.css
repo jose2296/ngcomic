@@ -1,0 +1,28 @@
+article{
+  border: 2px solid black;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  background: #1a1a1a;
+  color: white;
+}
+
+article header{
+  padding: 1rem;
+  background: white;
+}
+
+article > img{
+  max-width: 200px;
+  float: left;
+  margin: 1rem;
+}
+
+.body{
+  padding: 1rem;
+}
+
+.author{
+  background: white;
+  color: #1a1a1a;
+  padding: 1rem;
+}
