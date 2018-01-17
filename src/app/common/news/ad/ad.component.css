@@ -1,0 +1,20 @@
+article{
+  border-radius: 5px;
+  border: 2px solid black;
+  height: 20rem;
+  background-image: url("https://comicvine.gamespot.com/api/image/original/5990333-deck.jpg");
+  background-size: 100%;
+  background-position: center;
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+article h1{
+  font-family: 'Bangers', cursive;
+  color: white;
+  text-shadow: 2px 0px 5px #1a1a1a;
+}

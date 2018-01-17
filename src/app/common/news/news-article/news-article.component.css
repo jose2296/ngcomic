@@ -15,14 +15,30 @@ article > img{
   max-width: 200px;
   float: left;
   margin: 1rem;
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
 .body{
   padding: 1rem;
 }
 
-.author{
+.body /deep/ * {
+  color: white;
+}
+
+.pie{
   background: white;
   color: #1a1a1a;
   padding: 1rem;
+  overflow: auto;
+}
+
+.author{
+  float: left;
+  line-height: 50px;
+}
+
+.more{
+  float: right;
 }

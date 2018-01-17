@@ -1,11 +1,19 @@
 <article>
   <header>
     <h1>{{article.title}}</h1>
+    <span class="badge badge-primary">By: {{article.author}}</span>
   </header>
   <img src="{{article.image}}" alt="">
   <div class="body" [innerHTML]="article.body"></div>
 
-  <div class="author">By: {{article.author}}</div>
+  <div class="pie">
+    <div class="author">
+      By: {{article.author}}
+    </div>
+    <div class="more">
+      <button type="button" class="btn btn-outline-primary">Read Article</button>
+    </div>
+  </div>
 </article>
 
 <hr>

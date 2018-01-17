@@ -1,6 +1,7 @@
 <h1>News</h1>
 
-<div *ngFor="let article of news">
+<div *ngFor="let article of news; let i = index">
+  <app-ad *ngIf="i == 2"></app-ad>
   <app-news-article [article]="article"></app-news-article>
 </div>
 

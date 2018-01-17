@@ -31,6 +31,7 @@ import { ComicComponent } from './comic/comic.component';
 import { ImageComponent } from './common/image/image.component';
 import { NewsComponent } from './common/news/news.component';
 import { NewsArticleComponent } from './common/news/news-article/news-article.component';
+import { AdComponent } from './common/news/ad/ad.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { NewsArticleComponent } from './common/news/news-article/news-article.co
         ComicComponent,
         ImageComponent,
         NewsComponent,
-        NewsArticleComponent
+        NewsArticleComponent,
+        AdComponent
     ],
     imports: [
         BrowserModule,
