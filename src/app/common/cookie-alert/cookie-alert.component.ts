@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CookieAlertComponent implements OnInit {
 
-  constructor() { }
+  acept:boolean;
+
+  constructor() { 
+    this.acept = localStorage.getItem("cookie") == "true";
+  }
 
   ngOnInit() {
+  }
+
+
+  aceptCookies(){
+    localStorage.setItem('cookie','true');
+    this.acept = true;
   }
 
 }
