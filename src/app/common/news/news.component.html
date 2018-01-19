@@ -1,9 +1,14 @@
 <h1>News</h1>
 
-<div *ngFor="let article of news; let i = index">
-  <app-ad *ngIf="i == 2"></app-ad>
-  <app-news-article [article]="article"></app-news-article>
-</div>
+<app-loading *ngIf="!complete"></app-loading>
+
+<ng-container *ngIf="complete">
+  <div *ngFor="let article of news; let i = index">
+    <app-ad *ngIf="i == 2"></app-ad>
+    <app-news-article [article]="article"></app-news-article>
+  </div>
+</ng-container>
+
 
 <!--<h1>{{article.title}}</h1>-->
 <!--<img src="{{article.image}}" alt="">-->

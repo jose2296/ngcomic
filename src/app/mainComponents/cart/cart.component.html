@@ -9,46 +9,49 @@
   </div>
 
   <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th class="volumeInfo">Product</th>
-        <th class="textCenter">Quantity</th>
-        <th class="textCenter">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngIf="complete">
-          <ng-container *ngIf="cartComics.length > 0">
-              <tr class="comic" *ngFor="let comic of cartComics">
-                <td class="img" [routerLink]="['/shop', comic.issueId]">
-                  <img [src]="comic.issueImage.small_url" alt="" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
-                </td>
-                <td class="volumeInfo">
-                  {{comic.issueName}}
-                  <br> {{comic.volumeName}}
-                </td>
-                <td>
-                    {{quantity[comic.issueId]}}
-                  <br>
-                  <button type="button" class="quantitydelete btn btn-primary" (click)="deleteQuantity(comic.issueId)"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
-                  <button type="button" class="quantitydelete btn btn-primary" (click)="deleteAllQuantity(comic.issueId)"><i class="fa fa-times" aria-hidden="true"></i></button>
-                </td>
-                <td>{{comic.price | currency}}</td>
-              </tr>
-            </ng-container>
-            <ng-container *ngIf="cartComics <= 0">
-              No hay Comics en el carro
-            </ng-container>
-      </ng-container>
+    <ng-container *ngIf="complete">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th class="volumeInfo">Product</th>
+          <th class="textCenter">Quantity</th>
+          <th class="textCenter">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="cartComics.length > 0">
+          <tr class="comic" *ngFor="let comic of cartComics">
+            <td class="img" [routerLink]="['/shop', comic.issueId]">
+              <app-image [image]="comic.issueImage.small_url"></app-image>
+              <!-- <img [src]="comic.issueImage.small_url" alt="" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"> -->
+            </td>
+            <td class="volumeInfo">
+              {{comic.issueName}}
+              <br> {{comic.volumeName}}
+            </td>
+            <td>
+              {{quantity[comic.issueId]}}
+              <br>
+              <button type="button" class="quantitydelete btn btn-primary" (click)="deleteQuantity(comic.issueId)">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="quantitydelete btn btn-primary" (click)="deleteAllQuantity(comic.issueId)">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+            </td>
+            <td>{{comic.price | currency}}</td>
+          </tr>
+        </ng-container>
+        <ng-container *ngIf="cartComics <= 0">
+          No hay Comics en el carro
+        </ng-container>
+      </tbody>
+    </ng-container>
 
-      <ng-container *ngIf="!complete">
-        <img src="assets/loading.gif" alt="">
-
-      </ng-container>
-     
-
-    </tbody>
   </table>
+
+  <div class="loading">
+    <app-loading *ngIf="!complete"></app-loading>
+  </div>
 
 </div>

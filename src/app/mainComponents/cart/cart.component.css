@@ -11,6 +11,9 @@
 .img{
    width: 10%; 
 }
+.img img {
+    width: 100%;
+}
 img{
     width: 100%;
 }
@@ -42,4 +45,9 @@ td{
 .quantitydelete{
     padding: 0.5rem 1rem;
     margin-top: 0.5rem;
+}
+
+
+.loading{
+    margin: auto;
 }

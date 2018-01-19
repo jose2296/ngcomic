@@ -10,9 +10,10 @@
         </ng-container>
   </ng-container>
 
-  <ng-container *ngIf="!complete" >
-    <img src="assets/loading.gif" alt="">
-  </ng-container>
+  <div class="loading">
+      <app-loading *ngIf="!complete"></app-loading>
+  </div>
+
   
 </div>
 

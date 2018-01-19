@@ -1,5 +1,6 @@
 <!--<img *ngIf="loading" src="/assets/loading.gif" alt="loading" />-->
-<div class="loader-container" *ngIf="loading">
+<app-loading *ngIf="loading"></app-loading>
+<!-- <div class="loader-container" *ngIf="loading">
   <div class="loader-grey"></div>
-</div>
+</div> -->
 <img [hidden]="loading" (load)="onLoad()" src="{{ image }}" />

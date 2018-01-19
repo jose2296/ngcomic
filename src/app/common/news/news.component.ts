@@ -11,9 +11,13 @@ export class NewsComponent implements OnInit {
 
   news:any = [];
 
+  complete:boolean;
+
   constructor(private _ds:DataservicesService) {
+    this.complete = false;
     _ds.news.valueChanges().subscribe(news =>{
       this.news = news;
+      this.complete = true;
     })
    }
 

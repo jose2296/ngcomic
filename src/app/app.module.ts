@@ -38,6 +38,7 @@ import {SearchService} from './_services/search.service';
 import {MapComponent} from './map/map.component';
 import {NotificationComponent} from './common/notification/notification.component';
 import {NotificationService} from './_services/notification.service';
+import { LoadingComponent } from './common/loading/loading.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import {NotificationService} from './_services/notification.service';
     CookieAlertComponent,
     StarsPipe,
     MapComponent,
-    NotificationComponent
+    NotificationComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
