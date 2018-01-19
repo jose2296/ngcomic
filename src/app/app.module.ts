@@ -35,6 +35,7 @@ import { AdComponent } from './common/news/ad/ad.component';
 import { CookieAlertComponent } from './common/cookie-alert/cookie-alert.component';
 import { StarsPipe } from './common/stars.pipe';
 import {SearchService} from "./_services/search.service";
+import { MapComponent } from './map/map.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import {SearchService} from "./_services/search.service";
         NewsArticleComponent,
         AdComponent,
         CookieAlertComponent,
-        StarsPipe
+        StarsPipe,
+        MapComponent
     ],
     imports: [
         BrowserModule,

@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {SearchService} from "../_services/search.service";
 
+import {DataservicesService} from '../_services/dataservices.service';
 
 @Component({
     selector: 'app-header',
@@ -14,7 +15,17 @@ export class HeaderComponent implements OnInit {
     stringSearch: string;
 
 
-    constructor(private searchService: SearchService,private router:Router) {
+    countCart: number = 0;
+
+
+    constructor(private searchService: SearchService,private router:Router,private _ds:DataservicesService) {
+
+        this.countCart = (localStorage.getItem("cart") !== "" ?  localStorage.getItem("cart").split(",").length : 0);
+
+
+        _ds.event.subscribe(()=>{
+            this.countCart = _ds.countCart;
+        })
 
     }
 

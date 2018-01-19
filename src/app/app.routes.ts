@@ -1,7 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
 
 
-import { HomeComponent, ShopComponent, CartComponent, LoginComponent, AboutComponent, ProductDetailsComponent } from './mainComponents/pages';
+import { HomeComponent, ShopComponent, CartComponent, LoginComponent, AboutComponent, ProductDetailsComponent, MapComponent } from './mainComponents/pages';
 
 const app_routes: Routes = [
     {path: 'home', component: HomeComponent },
@@ -10,6 +10,7 @@ const app_routes: Routes = [
     {path: 'cart', component: CartComponent},
     {path: 'login', component: LoginComponent},
     {path: 'about', component: AboutComponent},
+    {path: 'map', component: MapComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

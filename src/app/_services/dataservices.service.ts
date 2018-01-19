@@ -11,10 +11,19 @@ export class DataservicesService {
     volumes:any = [];
     news:any = [];
 
+    event = new EventEmitter();
+    countCart:number = 0;
+
   constructor(af:AngularFireDatabase) {
       this.issues = af.list("/issues");
       this.issuesId = af.object("/issues");
       this.volumes = af.object("/volumes");
       this.news = af.list("/news"); 
+   }
+
+
+   setCountCart(count){
+        this.countCart = count;
+        this.event.emit(this.countCart)
    }
 }

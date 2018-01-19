@@ -28,6 +28,8 @@ export class ProductDetailsComponent implements OnInit {
 
   complete: boolean = false;
 
+  alert:boolean = false;
+
 
   constructor(private route: ActivatedRoute, private af: AngularFireDatabase,private _ds:DataservicesService) {
 
@@ -77,9 +79,23 @@ export class ProductDetailsComponent implements OnInit {
         localStorage.setItem("cart", localStorage.getItem("cart") + "," + id);
       }  
 
+
+      this._ds.setCountCart(localStorage.getItem("cart").split(",").length > 0 ?  localStorage.getItem("cart").split(",").length : 0);
+
+      console.log(localStorage.getItem("cart").split(",").length);
+      
+
+      this.alert = true;
+
+      setInterval(function(){
+        this.alert = false; 
+      },2000)
   }
 
 
+  closeAlert(){
+    this.alert = false;
+  }
 
 
 

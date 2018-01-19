@@ -17,6 +17,8 @@ export class CartComponent implements OnInit {
 
   total:number = 0;
 
+  complete:boolean = false;
+
   constructor(private _ds:DataservicesService) {
 
     this.total = 0;
@@ -50,6 +52,8 @@ export class CartComponent implements OnInit {
         this.cartComics.push(comics[this.cartComicsId[i]]);
         this.total += comics[this.cartComicsId[i]].price * this.quantity[comics[this.cartComicsId[i]].issueId]
       }
+
+      this.complete = true;
 
     })
 
@@ -102,6 +106,14 @@ export class CartComponent implements OnInit {
         this.total += comics[this.cartComicsId[i]].price * this.quantity[comics[this.cartComicsId[i]].issueId]
       }
 
+      this._ds.setCountCart(localStorage.getItem("cart") !== "" ?  localStorage.getItem("cart").split(",").length : 0);
+  
+
     })
+
+
+
+
+
   }
 }

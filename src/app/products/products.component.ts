@@ -31,6 +31,8 @@ export class ProductsComponent implements OnInit {
     localOrder: boolean;
     stringSearch: string;
 
+    complete:boolean = false;
+
     constructor(private _ds: DataservicesService, private searchservice: SearchService) {
         this.lastComics = 4;
         this.localOrder = false;
@@ -62,6 +64,8 @@ export class ProductsComponent implements OnInit {
                     if(this.stringSearch) this.search()
                     break;
             }
+
+            this.complete = true;
         });
     }
 
