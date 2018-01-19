@@ -32,6 +32,7 @@
                     {{quantity[comic.issueId]}}
                   <br>
                   <button type="button" class="quantitydelete btn btn-primary" (click)="deleteQuantity(comic.issueId)"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                  <button type="button" class="quantitydelete btn btn-primary" (click)="deleteAllQuantity(comic.issueId)"><i class="fa fa-times" aria-hidden="true"></i></button>
                 </td>
                 <td>{{comic.price | currency}}</td>
               </tr>

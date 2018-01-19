@@ -14,8 +14,6 @@ export class NewsComponent implements OnInit {
   constructor(private _ds:DataservicesService) {
     _ds.news.valueChanges().subscribe(news =>{
       this.news = news;
-      console.log(this.news);
-      
     })
    }
 

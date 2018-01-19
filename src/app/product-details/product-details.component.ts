@@ -47,7 +47,6 @@ export class ProductDetailsComponent implements OnInit {
 
           this.volume = volumes[this.comic.volumeId];
 
-          // console.log(this.volume);
           this.volumeComics = [];        
           for (let i = 0; i < this.volume.volumeIssues.length; i++) {
             this.volumeComics.push(this.comics[this.volume.volumeIssues[i]])
@@ -66,7 +65,6 @@ export class ProductDetailsComponent implements OnInit {
 
 
   changeCurrentVComicImage(id){
-    console.log(id);
     this.currentVComic = this.comics[id];
     this.currentVComicImage = this.currentVComic.issueImage.small_url;
   }
@@ -81,9 +79,6 @@ export class ProductDetailsComponent implements OnInit {
 
 
       this._ds.setCountCart(localStorage.getItem("cart").split(",").length > 0 ?  localStorage.getItem("cart").split(",").length : 0);
-
-      console.log(localStorage.getItem("cart").split(",").length);
-      
 
       this.alert = true;
 

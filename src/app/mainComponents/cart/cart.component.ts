@@ -15,36 +15,25 @@ export class CartComponent implements OnInit {
 
   quantity: any = [];
 
-  total:number = 0;
+  total:number;
 
-  complete:boolean = false;
+  complete:boolean;
 
   constructor(private _ds:DataservicesService) {
 
     this.total = 0;
+    this.complete = false;
 
+    //Coger 
     let cCartIds = localStorage.getItem("cart") ? localStorage.getItem("cart").split(",") : [];
 
     for (let i = 0; i < cCartIds.length; i++) {
       this.quantity[cCartIds[i]] = 1;
     }
 
-    
-    for (let i = 0; i < cCartIds.length; i++) {
-      for (let j = i+1; j < cCartIds.length; j++) {
-        if (cCartIds[i] == cCartIds[j]) {
-          console.log("igual");
-          this.quantity[cCartIds[i]]++;
-          cCartIds.splice(i,1);
-          i--;
-          j--;
-        } 
-      }     
-    }
+    cCartIds =  this.deleteDupArray(cCartIds);
 
     this.cartComicsId = cCartIds;
-
-
     
     _ds.issuesId.valueChanges().subscribe(comics=>{
 
@@ -62,11 +51,10 @@ export class CartComponent implements OnInit {
   ngOnInit() {}
 
 
-
+  //Eliminar un comic del localStorage dependiendo del id
   deleteQuantity(id){
     
     let cCartIds = localStorage.getItem("cart") ? localStorage.getItem("cart").split(",") : [];
-    console.log(cCartIds,id);
 
     cCartIds.splice(cCartIds.indexOf(id.toString()),1);
 
@@ -77,43 +65,66 @@ export class CartComponent implements OnInit {
       this.quantity[cCartIds[i]] = 1;
     }
 
+    this.deleteDupArray(cCartIds);
+
+
+    this.updateData(cCartIds);
+  }
+
+
+  
+  //Elimina todos los comics con el mismo id del LocalStorage
+  deleteAllQuantity(id){
+
+    let comicsId = localStorage.getItem("cart").split(",");
     
-    for (let i = 0; i < cCartIds.length; i++) {
-      for (let j = i+1; j < cCartIds.length; j++) {
-        if (cCartIds[i] == cCartIds[j]) {
-          console.log("igual");
-          this.quantity[cCartIds[i]]++;
-          cCartIds.splice(i,1);
-          i--;
-          j--;
-        } 
-      }     
-    }
+    comicsId = comicsId.filter(function(el){
+      if(el !== id.toString()){
+        return el
+      }
+    })
+
+    localStorage.setItem("cart",comicsId.join(","));
 
 
-    
+    comicsId = this.deleteDupArray(comicsId);
 
-    this.cartComicsId = cCartIds;
+    this.updateData(comicsId);
+  }
+
+  //Reinicia el array de comics que se visualizan en el carro || parametro => array de indices (id comics) no duplicados
+  updateData(comicsId){
+
+    this.cartComicsId = comicsId;
     
     this.total = 0;
 
     this.cartComics = []
 
     this._ds.issuesId.valueChanges().subscribe(comics=>{
-
+      
       for (let i = 0; i < this.cartComicsId.length; i++) {
         this.cartComics.push(comics[this.cartComicsId[i]]);
         this.total += comics[this.cartComicsId[i]].price * this.quantity[comics[this.cartComicsId[i]].issueId]
       }
-
       this._ds.setCountCart(localStorage.getItem("cart") !== "" ?  localStorage.getItem("cart").split(",").length : 0);
-  
-
     })
-
-
-
-
-
   }
+
+  //Eliminar valores duplicados de un array dado || parametro => array que almazena la cantidad de comics dependiendo del indice (id)
+  deleteDupArray(array,quantity=this.quantity):any{
+    for (let i = 0; i < array.length; i++) {
+      for (let j = i+1; j < array.length; j++) {
+        if (array[i] == array[j]) {
+          quantity[array[i]]++;
+          array.splice(i,1);
+          i--;
+          j--;
+        } 
+      }     
+    }
+    return array;
+  }
+
+
 }
