@@ -10,9 +10,15 @@ import {logger} from 'codelyzer/util/logger';
 export class NotificationComponent implements OnInit {
 
   visible: boolean;
+  type: string;
+  message: string;
+  duration: number;
 
   constructor(private notificationService: NotificationService) {
-    this.notificationService.evento.subscribe(() => {
+    this.notificationService.event.subscribe((notification) => {
+      this.type = notification.type;
+      this.message = notification.message;
+      this.duration = notification.duration;
       this.activateNotification();
     });
   }
@@ -25,7 +31,7 @@ export class NotificationComponent implements OnInit {
     this.visible = true;
     setTimeout(() => {
       this.visible = false;
-    }, 500);
+    }, this.duration);
   }
 
   funcion() {

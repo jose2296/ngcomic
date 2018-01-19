@@ -78,8 +78,20 @@ export class ProductDetailsComponent implements OnInit {
     this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
   }
 
-  alert() {
-    this.notificationService.setVisible();
+  alertCart() {
+    this.notificationService.triggerNotification({
+      'type': 'info',
+      'message': 'Article added to the cart',
+      'duration': 500
+    });
+  }
+
+  alertNotImplemented() {
+    this.notificationService.triggerNotification({
+      'type': 'warning',
+      'message': 'Sorry, this feature is not implemented yet...',
+      'duration': 2000
+    });
   }
 
 
