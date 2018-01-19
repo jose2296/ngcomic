@@ -4,9 +4,14 @@ footer{
 }
 
 footer > *{
-  padding:  0.715rem;
+
+  display: inline-block;
 }
 
 footer{
   background: #fff;
+}
+
+.nav-link.route{
+  float: right;
 }
