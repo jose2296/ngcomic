@@ -3,27 +3,8 @@
   z-index: 899;
   height: 300px;
   width: 300px;
+  top: 5rem;
   left: 0;
   right: 0;
   margin: auto;
-  animation: 2s entrance forwards linear;
-}
-
-@keyframes entrance {
-  0%{
-    top: -300px;
-  }
-
-
-  20%{
-    top: 5rem;
-  }
-
-  99%{
-    top: 5rem;
-  }
-
-  100%{
-    top: -300px;
-  }
 }

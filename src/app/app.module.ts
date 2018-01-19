@@ -25,58 +25,61 @@ import {ProductsComponent} from './products/products.component';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 
 
-//services
+// Services
 import {DataservicesService} from './_services/dataservices.service';
-import { ComicComponent } from './comic/comic.component';
-import { ImageComponent } from './common/image/image.component';
-import { NewsComponent } from './common/news/news.component';
-import { NewsArticleComponent } from './common/news/news-article/news-article.component';
-import { AdComponent } from './common/news/ad/ad.component';
-import { CookieAlertComponent } from './common/cookie-alert/cookie-alert.component';
-import { StarsPipe } from './common/stars.pipe';
-import {SearchService} from "./_services/search.service";
-import { MapComponent } from './map/map.component';
+import {ComicComponent} from './comic/comic.component';
+import {ImageComponent} from './common/image/image.component';
+import {NewsComponent} from './common/news/news.component';
+import {NewsArticleComponent} from './common/news/news-article/news-article.component';
+import {AdComponent} from './common/news/ad/ad.component';
+import {CookieAlertComponent} from './common/cookie-alert/cookie-alert.component';
+import {StarsPipe} from './common/stars.pipe';
+import {SearchService} from './_services/search.service';
+import {MapComponent} from './map/map.component';
+import {NotificationComponent} from './common/notification/notification.component';
+import {NotificationService} from './_services/notification.service';
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent,
-        HomeComponent,
-        ShopComponent,
-        CartComponent,
-        LoginComponent,
-        AboutComponent,
-        ProductFilterComponent,
-        ProductsComponent,
-        ProductDetailsComponent,
-        ComicComponent,
-        ImageComponent,
-        NewsComponent,
-        NewsArticleComponent,
-        AdComponent,
-        CookieAlertComponent,
-        StarsPipe,
-        MapComponent
-    ],
-    imports: [
-        BrowserModule,
-        app_routing,
-        FormsModule,
-        AngularFireDatabaseModule,
-        AngularFireModule.initializeApp({
-            apiKey: 'AIzaSyCf9QMsCXaFSoMOcVcGDL9wVU5OVZgu_EA',
-            authDomain: 'ngcomics-a06af.firebaseapp.com',
-            databaseURL: 'https://ngcomics-a06af.firebaseio.com',
-            projectId: 'ngcomics-a06af',
-            storageBucket: 'ngcomics-a06af.appspot.com',
-            messagingSenderId: '918041929952'
-        }),
-        NgxPaginationModule
-    ],
-    providers: [DataservicesService,SearchService],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    ShopComponent,
+    CartComponent,
+    LoginComponent,
+    AboutComponent,
+    ProductFilterComponent,
+    ProductsComponent,
+    ProductDetailsComponent,
+    ComicComponent,
+    ImageComponent,
+    NewsComponent,
+    NewsArticleComponent,
+    AdComponent,
+    CookieAlertComponent,
+    StarsPipe,
+    MapComponent,
+    NotificationComponent
+  ],
+  imports: [
+    BrowserModule,
+    app_routing,
+    FormsModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp({
+      apiKey: 'AIzaSyCf9QMsCXaFSoMOcVcGDL9wVU5OVZgu_EA',
+      authDomain: 'ngcomics-a06af.firebaseapp.com',
+      databaseURL: 'https://ngcomics-a06af.firebaseio.com',
+      projectId: 'ngcomics-a06af',
+      storageBucket: 'ngcomics-a06af.appspot.com',
+      messagingSenderId: '918041929952'
+    }),
+    NgxPaginationModule
+  ],
+  providers: [DataservicesService, SearchService, NotificationService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

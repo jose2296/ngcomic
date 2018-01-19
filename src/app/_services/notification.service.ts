@@ -1,8 +1,15 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 
 @Injectable()
 export class NotificationService {
 
-  constructor() { }
+  evento = new EventEmitter();
+
+  setVisible() {
+    this.evento.emit();
+  }
+
+  constructor() {
+  }
 
 }

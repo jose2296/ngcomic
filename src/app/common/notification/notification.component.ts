@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {NotificationService} from '../../_services/notification.service';
+import {logger} from 'codelyzer/util/logger';
 
 @Component({
   selector: 'app-notification',
@@ -9,19 +11,25 @@ export class NotificationComponent implements OnInit {
 
   visible: boolean;
 
-  constructor() {
+  constructor(private notificationService: NotificationService) {
+    this.notificationService.evento.subscribe(() => {
+      this.activateNotification();
+    });
   }
 
   ngOnInit() {
     this.visible = false;
-    this.activateNotification();
   }
 
   activateNotification() {
     this.visible = true;
     setTimeout(() => {
       this.visible = false;
-    }, 2000);
+    }, 500);
+  }
+
+  funcion() {
+    console.log(this.visible);
   }
 
 }

@@ -1,13 +1,3 @@
-<ng-container *ngIf="alert">
-  <div class="alert alert-success">
-    <button type="button" class="close" (click)="closeAlert()">&times;</button>
-    <strong>Well done!</strong> You successfully read
-    <a class="alert-link">this important alert message</a>.
-  </div>
-</ng-container>
-
-
-
 <!-- Nav tabs -->
 <ul class="nav nav-tabs nav-justified">
   <li class="nav-item">
@@ -53,7 +43,7 @@
 
         <div class="deseados">
           <button type="button" class="btn btn-secondary">Add to wish list</button>
-          <button type="button" class="btn btn-primary" (click)="addCart(comic.issueId)" onclick="$('.alert').show()">Add to cart</button>
+          <button type="button" class="btn btn-primary" (click)="addCart(comic.issueId); this.alert()">Add to cart</button>
         </div>
       </div>
     </div>
