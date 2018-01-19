@@ -86,6 +86,9 @@ export class CartComponent implements OnInit {
 
     localStorage.setItem("cart",comicsId.join(","));
 
+    for (let i = 0; i < comicsId.length; i++) {
+      this.quantity[comicsId[i]] = 1;
+    }
 
     comicsId = this.deleteDupArray(comicsId);
 
