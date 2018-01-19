@@ -5,8 +5,13 @@ footer{
 
 footer > *{
   padding:  0.715rem;
+  display: inline-block;
 }
 
 footer{
   background: #fff;
+}
+
+.nav-link.about, .nav-link.map{
+  float: right;
 }
