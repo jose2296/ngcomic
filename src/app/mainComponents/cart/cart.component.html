@@ -23,7 +23,6 @@
           <tr class="comic" *ngFor="let comic of cartComics">
             <td class="img" [routerLink]="['/shop', comic.issueId]">
               <app-image [image]="comic.issueImage.small_url"></app-image>
-              <!-- <img [src]="comic.issueImage.small_url" alt="" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"> -->
             </td>
             <td class="volumeInfo">
               {{comic.issueName}}

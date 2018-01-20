@@ -12,16 +12,14 @@ import {DataservicesService} from '../_services/dataservices.service';
 export class HeaderComponent implements OnInit {
 
   stringSearch: string;
-
-
   countCart: number;
 
 
   constructor(private searchService: SearchService, private router: Router, private _ds: DataservicesService) {
-
+    //variable para saber la cantidad de productos del carro
     this.countCart = (localStorage.getItem('cart') !== '' && localStorage.getItem('cart') != null  ? localStorage.getItem('cart').split(',').length : 0);
 
-
+    //actualizar el valor de la cantidad de productos en el carro
     _ds.event.subscribe(() => {
       this.countCart = _ds.countCart;
     });

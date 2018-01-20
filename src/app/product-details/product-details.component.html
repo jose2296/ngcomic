@@ -37,7 +37,7 @@
         </div>
         <div class="description" [innerHTML]="comic.issueDescription"></div>
 
-        <div class="deseados">
+        <div>
           <button type="button" class="btn btn-secondary" (click)="this.alertNotImplemented()">Add to wish list</button>
           <button type="button" class="btn btn-primary" (click)="addCart(comic.issueId); this.alertCart()">Add to cart</button>
         </div>
@@ -48,8 +48,7 @@
   <!-- Tab Volumen -->
   <article class="tab-pane fade" id="volume" role="tabpanel">
 
-      <app-loading *ngIf="!complete"></app-loading>
-
+    <app-loading *ngIf="!complete"></app-loading>
 
     <div *ngIf="complete" class="row">
 
@@ -60,8 +59,7 @@
 
         <div class="allImages">
           <div class="imagesVolume" *ngFor="let vComic of volumeComics | paginate: { itemsPerPage: 4, currentPage: defaultPage }">
-            <!-- [ngStyle]="{width: 100 / volumeComics.length + '%'}" -->
-            <img src="{{vComic.issueImage.small_url}}" alt="" (click)="changeCurrentVComicImage(vComic.issueId)">
+            <img [src]="vComic.issueImage.small_url" alt="" (click)="changeCurrentVComicImage(vComic.issueId)">
           </div>
           <pagination-controls previousLabel="" nextLabel="" (pageChange)="defaultPage = $event" class="pagination-class"></pagination-controls>
         </div>

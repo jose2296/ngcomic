@@ -14,6 +14,7 @@ import {NotificationService} from '../_services/notification.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
+
   comics: any = [];
   comic: any = [];
 
@@ -23,9 +24,7 @@ export class ProductDetailsComponent implements OnInit {
   currentVComicImage;
   currentVComic;
 
-
   defaultPage = 1;
-
   complete: boolean = false;
 
 
@@ -50,7 +49,6 @@ export class ProductDetailsComponent implements OnInit {
           }
 
           this.complete = true;
-
         });
       });
     });
@@ -73,7 +71,6 @@ export class ProductDetailsComponent implements OnInit {
     } else {
       localStorage.setItem('cart', localStorage.getItem('cart') + ',' + id);
     }
-
 
     this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
   }
