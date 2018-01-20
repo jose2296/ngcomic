@@ -31,15 +31,15 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private af: AngularFireDatabase, private _ds: DataservicesService, private notificationService: NotificationService) {
 
-
+    //coger el comic dependiendo del parametro de la ruta (/shop/id)
     route.params.subscribe(parametros => {
       _ds.issuesId.valueChanges().subscribe(data => {
-
+        //guardar los datos del comic deseado (id)
         this.comics = data;
         this.comic = this.comics[parametros.id];
 
         this.currentVComic = this.comic;
-
+        //almacenar los comics del volumen 
         _ds.volumes.valueChanges().subscribe(volumes => {
 
           this.volume = volumes[this.comic.volumeId];
@@ -60,13 +60,13 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  //Funcion que cambia la imagen que se ve en el visor segun el id que se pase
   changeCurrentVComicImage(id) {
     this.currentVComic = this.comics[id];
     this.currentVComicImage = this.currentVComic.issueImage.small_url;
   }
 
-
+  //Funcion que añade el comics segun el id que se le pase al carro (localStorage)
   addCart(id) {
     if (localStorage.getItem('cart') === '' || localStorage.getItem('cart') == null) {
       localStorage.setItem('cart', id);
@@ -78,7 +78,7 @@ export class ProductDetailsComponent implements OnInit {
     this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
   }
 
-<<<<<<< HEAD
+  //Funcion que añade todos los comics de un volmen al carro (localStorage)
   addVolume(idVol){
     let comicsVol = [];
     for (let i = 0; i < idVol.length; i++) {
@@ -95,10 +95,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
 
-=======
   // Funcion que se ejecuta al clicar en el boton de añadir al carro, lanza una notificacion avisando de que se ha añadido
   // satisfactoriamente.
->>>>>>> 49d21e531ea7b0cc7d6871584a94b6716563dd3f
   alertCart() {
     this.notificationService.triggerNotification({
       'type': 'info',

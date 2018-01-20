@@ -8,11 +8,6 @@
     min-width: 50%;
 }
 
-#comic{
-    /* display: flex; */
-
-}
-
 #comic > div > div{
     padding: 1rem;
     /* flex: 1; */
@@ -28,7 +23,6 @@
 
 #volume .visor .allImages{
     display: block;
-    /* overflow-x: auto; */
     white-space: nowrap;
 }
 
@@ -53,7 +47,6 @@
 #volume img{
     padding: 1rem;
     flex: 1;
-    /* float: left; */
     width: 100%;
 
     cursor: pointer;
