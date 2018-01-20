@@ -68,7 +68,7 @@ export class ProductDetailsComponent implements OnInit {
 
 
   addCart(id) {
-    if (localStorage.getItem('cart') == '' || localStorage.getItem('cart') == null) {
+    if (localStorage.getItem('cart') === '' || localStorage.getItem('cart') == null) {
       localStorage.setItem('cart', id);
     } else {
       localStorage.setItem('cart', localStorage.getItem('cart') + ',' + id);
@@ -78,6 +78,7 @@ export class ProductDetailsComponent implements OnInit {
     this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
   }
 
+<<<<<<< HEAD
   addVolume(idVol){
     let comicsVol = [];
     for (let i = 0; i < idVol.length; i++) {
@@ -94,6 +95,10 @@ export class ProductDetailsComponent implements OnInit {
   }
 
 
+=======
+  // Funcion que se ejecuta al clicar en el boton de añadir al carro, lanza una notificacion avisando de que se ha añadido
+  // satisfactoriamente.
+>>>>>>> 49d21e531ea7b0cc7d6871584a94b6716563dd3f
   alertCart() {
     this.notificationService.triggerNotification({
       'type': 'info',
@@ -102,6 +107,8 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
+  // Funcion que se ejecuta al clicar en el boton de añadir a WishList, lanza una notificacion avisando de que la funcion no esta
+  // implementada aun.
   alertNotImplemented() {
     this.notificationService.triggerNotification({
       'type': 'warning',
