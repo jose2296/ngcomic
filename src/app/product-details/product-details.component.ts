@@ -78,6 +78,22 @@ export class ProductDetailsComponent implements OnInit {
     this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
   }
 
+  addVolume(idVol){
+    let comicsVol = [];
+    for (let i = 0; i < idVol.length; i++) {
+      comicsVol.push(idVol[i]);
+    }
+
+    let a = comicsVol.concat(localStorage.getItem("cart") !== "" && localStorage.getItem("cart") !== null ? localStorage.getItem("cart").split(",") : []);
+    
+
+    localStorage.setItem("cart",a.join(","))
+    
+    this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
+    
+  }
+
+
   alertCart() {
     this.notificationService.triggerNotification({
       'type': 'info',

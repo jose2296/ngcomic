@@ -41,14 +41,24 @@
             </td>
             <td>{{comic.price | currency}}</td>
           </tr>
+          <tr>
+            <td colspan="2"></td>
+              <td >
+                  <button type="button" class="p-3 btn btn-primary" (click)="this.alertNotImplemented()">Buy Cart</button>
+              </td>
+              <td >
+                  <button type="button" class="p-3 btn btn-primary" (click)="removeCart()">Remove Cart</button>
+              </td>
+          </tr>
         </ng-container>
         <ng-container *ngIf="cartComics <= 0">
-          No hay Comics en el carro
+          No comics
         </ng-container>
       </tbody>
     </ng-container>
 
   </table>
+
 
   <div class="loading">
     <app-loading *ngIf="!complete"></app-loading>

@@ -78,7 +78,7 @@
             {{volume.volumeName}}
           </h1>
           <div class="addCart col-md-12 col-lg-4">
-            <button type="button" class="btn btn-primary">Add to cart</button>
+            <button type="button" class="btn btn-primary" (click)="addVolume(volume.volumeIssues); this.alertCart()">Add to cart</button>
           </div>
         </div>
 

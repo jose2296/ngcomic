@@ -2,6 +2,9 @@ import {Component,OnInit} from '@angular/core';
 
 import {DataservicesService} from '../../_services/dataservices.service'
 
+import {NotificationService} from '../../_services/notification.service';
+
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -19,7 +22,7 @@ export class CartComponent implements OnInit {
 
   complete:boolean;
 
-  constructor(private _ds:DataservicesService) {
+  constructor(private _ds:DataservicesService, private notificationService: NotificationService) {
 
     this.total = 0;
     this.complete = false;
@@ -129,5 +132,19 @@ export class CartComponent implements OnInit {
     return array;
   }
 
+
+  removeCart(){
+    localStorage.setItem("cart","");
+    this.updateData([]);
+  }
+
+
+  alertNotImplemented() {
+    this.notificationService.triggerNotification({
+      'type': 'warning',
+      'message': 'Sorry, this feature is not implemented yet...',
+      'duration': 2000
+    });
+  }
 
 }
