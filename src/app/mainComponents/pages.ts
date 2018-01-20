@@ -1,3 +1,4 @@
+//export de los componentes para usarlos en app.routes.ts
 export {HomeComponent} from './home/home.component';
 export {ShopComponent} from './shop/shop.component';
 export { ProductDetailsComponent } from '../product-details/product-details.component'

@@ -3,15 +3,11 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 
-
+//Firebase
 import * as firebase from 'firebase';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 
-
-import {AppComponent} from './app.component';
-import {HeaderComponent} from './header/header.component';
-import {FooterComponent} from './footer/footer.component';
 
 // Routes
 import {app_routing} from './app.routes';
@@ -27,17 +23,24 @@ import {ProductDetailsComponent} from './product-details/product-details.compone
 
 // Services
 import {DataservicesService} from './_services/dataservices.service';
+import {SearchService} from './_services/search.service';
+import {NotificationService} from './_services/notification.service';
+
+//pipe
+import {StarsPipe} from './common/stars.pipe';
+
+//components
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
 import {ComicComponent} from './comic/comic.component';
 import {ImageComponent} from './common/image/image.component';
 import {NewsComponent} from './common/news/news.component';
 import {NewsArticleComponent} from './common/news/news-article/news-article.component';
 import {AdComponent} from './common/news/ad/ad.component';
 import {CookieAlertComponent} from './common/cookie-alert/cookie-alert.component';
-import {StarsPipe} from './common/stars.pipe';
-import {SearchService} from './_services/search.service';
 import {MapComponent} from './mainComponents/map/map.component';
 import {NotificationComponent} from './common/notification/notification.component';
-import {NotificationService} from './_services/notification.service';
 import { LoadingComponent } from './common/loading/loading.component';
 
 
