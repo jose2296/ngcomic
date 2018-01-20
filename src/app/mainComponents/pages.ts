@@ -4,4 +4,4 @@ export { ProductDetailsComponent } from '../product-details/product-details.comp
 export {CartComponent} from './cart/cart.component';
 export {AboutComponent} from './about/about.component';
 export {LoginComponent} from './login/login.component';
-export {MapComponent} from '../map/map.component';
+export {MapComponent} from './map/map.component';
