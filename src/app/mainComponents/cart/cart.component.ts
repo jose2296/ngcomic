@@ -2,6 +2,9 @@ import {Component,OnInit} from '@angular/core';
 
 import {DataservicesService} from '../../_services/dataservices.service'
 
+import {NotificationService} from '../../_services/notification.service';
+
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -19,14 +22,14 @@ export class CartComponent implements OnInit {
 
   complete:boolean;
 
-  constructor(private _ds:DataservicesService) {
+  constructor(private _ds:DataservicesService, private notificationService: NotificationService) {
 
     this.total = 0;
     this.complete = false;
 
-    //Coger 
+    //Coger los id de los comics del localstorage
     let cCartIds = localStorage.getItem("cart") ? localStorage.getItem("cart").split(",") : [];
-
+    //inicializar cantidades de los comics 
     for (let i = 0; i < cCartIds.length; i++) {
       this.quantity[cCartIds[i]] = 1;
     }
@@ -35,8 +38,8 @@ export class CartComponent implements OnInit {
 
     this.cartComicsId = cCartIds;
     
+    //almenzar los comics y la cantidad total del carro
     _ds.issuesId.valueChanges().subscribe(comics=>{
-
       for (let i = 0; i < this.cartComicsId.length; i++) {
         this.cartComics.push(comics[this.cartComicsId[i]]);
         this.total += comics[this.cartComicsId[i]].price * this.quantity[comics[this.cartComicsId[i]].issueId]
@@ -60,7 +63,7 @@ export class CartComponent implements OnInit {
 
     localStorage.setItem("cart",cCartIds.join(","));
     
-
+    
     for (let i = 0; i < cCartIds.length; i++) {
       this.quantity[cCartIds[i]] = 1;
     }
@@ -114,7 +117,7 @@ export class CartComponent implements OnInit {
     })
   }
 
-  //Eliminar valores duplicados de un array dado || parametro => array que almazena la cantidad de comics dependiendo del indice (id)
+  //Eliminar valores duplicados de un array dado y aumentar el array de cantidades dependiendo de los datos duplicados || parametro => array que almazena la cantidad de comics dependiendo del indice (id)
   deleteDupArray(array,quantity=this.quantity):any{
     for (let i = 0; i < array.length; i++) {
       for (let j = i+1; j < array.length; j++) {
@@ -129,5 +132,19 @@ export class CartComponent implements OnInit {
     return array;
   }
 
+
+  removeCart(){
+    localStorage.setItem("cart","");
+    this.updateData([]);
+  }
+
+
+  alertNotImplemented() {
+    this.notificationService.triggerNotification({
+      'type': 'warning',
+      'message': 'Sorry, this feature is not implemented yet...',
+      'duration': 2000
+    });
+  }
 
 }

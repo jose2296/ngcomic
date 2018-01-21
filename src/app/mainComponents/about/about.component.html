@@ -1,82 +1,92 @@
 <div class="row">
-<div  class="col-lg-6 col-sm-12 col-12">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, beatae blanditiis deserunt doloremque eligendi fugiat incidunt ipsum libero neque nulla odit perferendis perspiciatis provident reiciendis voluptates. Ad laboriosam placeat voluptatem!
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto fugiat labore, nobis porro quasi tenetur! Adipisci consequatur culpa dicta ducimus expedita mollitia nihil non praesentium ratione repellat repudiandae, ut vitae.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem laboriosam nulla porro, quis quisquam rem saepe? Ad aliquam atque distinctio, dolore eligendi eos esse fugit iste numquam odit optio repellendus.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid blanditiis dicta, dolorum, ducimus ea harum ipsum laudantium magnam magni nam nisi numquam quae quia quos totam vero, voluptate! Nisi.
-
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores, corporis eaque earum eveniet explicabo fuga incidunt maiores officiis optio, placeat provident quae quaerat quasi quidem quisquam, repudiandae tempora vel!
-    nsectetur adipisicing elit. Asperiores, beatae blanditiis deserunt doloremque eligendi fugiat incidunt ipsum libero neque nulla odit perferendis perspiciatis provident reiciendis voluptates. Ad laboriosam placeat voluptatem!
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto fugiat labore, nobis porro quasi tenetur! Adipisci consequatur culpa dicta ducimus expedita mollitia nihil non praesentium ratione repellat repudiandae, ut vitae.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem laboriosam nulla porro, quis quisquam rem saepe? Ad aliquam atque distinctio, dolore eligendi eos esse fugit iste numquam odit optio repellendus.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid blanditiis dicta, dolorum, ducimus ea harum ipsum laudantium magnam magni nam nisi numquam quae quia quos totam vero, voluptate! Nisi.
-
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores, corporis eaque earum eveniet explicabo fuga incidunt maiores
-    lit. Architecto fugiat labore, nobis porro quasi tenetur! Adipisci consequatur culpa dicta ducimus expedita mollitia nihil non praesentium ratione repellat repudiandae, ut vitae.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem laboriosam nulla porro, quis quisquam rem saepe? Ad aliquam atque distinctio, dolore eligendi eos esse fugit iste numquam odit optio repellendus.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid blanditiis dicta, dolorum, ducimus ea harum ipsum laudantium magnam magni nam nisi numquam quae quia quos totam vero, voluptate! Nisi.
-</div>
-<div class="col-lg-6 col-sm-12 col-12">
+  <div class="col-lg-6 col-sm-12 col-12">
+    <h2>NGCOMICS - About us</h2>
+    <p>We are a company dedicated to the online sale of comics. We sell comics but we are also fans to read them. We
+      sell comics but we are also fans to read them, that is why our business makes great efforts in offering a safe and
+      reliable shopping service in order that our customers always return to our store in the same way they would with
+      their physical store of trust.</p>
+    <h4>Data of interest</h4>
+    <p>Address: c/ Una, 66, atico, Colmenar Viejo, Madrid, España</p>
+    <p>Found date: 2017</p>
+    <p>Partners: </p>
+    <ul>
+      <li>Carlos Valdivia</li>
+      <li>Jose Jerez</li>
+      <li>Daniel de las Heras</li>
+    </ul>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12105.718245691367!2d-3.7739879499999995!3d40.664503249999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1516468479306"
+      width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+  <div class="col-lg-6 col-sm-12 col-12">
     <form action="" method="post" ngNativeValidate>
-        <fieldset>
-            <h2>Contact form</h2>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control " id="name"  (keyup)="valid('name')"
-                       pattern="[a-zA-Z]+" required="" placeholder="Enter a name" name="form1"
-                        oninvalid="setCustomValidity('Insert a valid name')" oninput="setCustomValidity('')">
-            </div>
-            <div class="form-group">
-                <label for="surname">First surname</label>
-                <input type="text" class="form-control" id="surname"  pattern="[a-zA-Z]+" (keyup)="valid('surname')"   required="" placeholder="Enter a surname" name="form1"
-                       oninvalid="setCustomValidity('Insert a valid first surname')"  oninput="setCustomValidity('')">
-            </div>
-            <div class="form-group">
-                <label for="surname1">Second surname</label>
-                <input type="text" class="form-control" id="surname1"  pattern="[a-zA-Z]+" (keyup)="valid('surname1')" required=""  placeholder="Enter a second surname" name="form1"
-                       oninvalid="setCustomValidity('Insert a second surname')"  oninput="setCustomValidity('')">
-            </div>
-            <div class="form-group">
-                <label for="email1">Email address</label>
-                <input type="email" class="form-control" id="email1" (keyup)="valid('email1')" required="" placeholder="Enter a email" name="form1"
-                        oninvalid="setCustomValidity('Insert a valid email address')" oninput="setCustomValidity('')">
-            </div>
-            <div class="form-group">
-                <label for="tel1">Telephone</label>
-                <input type="tel" class="form-control" id="tel1" (keyup)="valid('tel1')" maxlength="9" minlength="9"  placeholder="Enter a telephone number (9 numbres)"
-                        oninvalid="setCustomValidity('Insert a valid telephone (9 digits)')" oninput="setCustomValidity('')">
-            </div>
-            <div class="form-group">
-                <label for="tel2">Mobile phone</label>
-                <input type="tel" class="form-control" id="tel2" (keyup)="valid('tel2')" maxlength="9" minlength="9" required="" placeholder="Enter a mobile phone number (9 numbres)" name="form1"
-                        oninvalid="setCustomValidity('Insert a valid mobile phone (9 digits)')" oninput="setCustomValidity('')">
-            </div>
-            <div class="form-group">
-                <label for="select1">Issue</label>
-                <select class="form-control" id="select1" required="required" (change)="valid('select1')" name="form1">
-                    <option value="">Choose one</option>
-                    <option>General</option>
-                    <option>Problems in the store</option>
-                    <option>Refound</option>
-                    <option>Prices</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="textarea1">Description</label>
-                <textarea class="form-control" id="textarea1" required="required" (keyup)="valid('textarea1')" rows="3" placeholder="Description of the issue" name="form1"></textarea>
-            </div>
-            <div class="form-group">
-                <div class="custom-control custom-checkbox" >
-                    <input type="checkbox" class="custom-control-input" required="required" id="check1" disabled (change)="activeSubmit()"  >
-                    <label class="custom-control-label" for="check1">Acept terms conditions</label>
-                </div>
+      <fieldset>
+        <h2>Contact form</h2>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control " id="name" (keyup)="valid('name')"
+                 pattern="[a-zA-Z]+" required="" placeholder="Enter a name" name="form1"
+                 oninvalid="setCustomValidity('Insert a valid name')" oninput="setCustomValidity('')">
+        </div>
+        <div class="form-group">
+          <label for="surname">First surname</label>
+          <input type="text" class="form-control" id="surname" pattern="[a-zA-Z]+" (keyup)="valid('surname')"
+                 required="" placeholder="Enter a surname" name="form1"
+                 oninvalid="setCustomValidity('Insert a valid first surname')" oninput="setCustomValidity('')">
+        </div>
+        <div class="form-group">
+          <label for="surname1">Second surname</label>
+          <input type="text" class="form-control" id="surname1" pattern="[a-zA-Z]+" (keyup)="valid('surname1')"
+                 required="" placeholder="Enter a second surname" name="form1"
+                 oninvalid="setCustomValidity('Insert a second surname')" oninput="setCustomValidity('')">
+        </div>
+        <div class="form-group">
+          <label for="email1">Email address</label>
+          <input type="email" class="form-control" id="email1" (keyup)="valid('email1')" required=""
+                 placeholder="Enter a email" name="form1"
+                 oninvalid="setCustomValidity('Insert a valid email address')" oninput="setCustomValidity('')">
+        </div>
+        <div class="form-group">
+          <label for="tel1">Telephone</label>
+          <input type="tel" class="form-control" id="tel1" (keyup)="valid('tel1')" maxlength="9" minlength="9"
+                 placeholder="Enter a telephone number (9 numbres)"
+                 oninvalid="setCustomValidity('Insert a valid telephone (9 digits)')" oninput="setCustomValidity('')">
+        </div>
+        <div class="form-group">
+          <label for="tel2">Mobile phone</label>
+          <input type="tel" class="form-control" id="tel2" (keyup)="valid('tel2')" maxlength="9" minlength="9"
+                 required="" placeholder="Enter a mobile phone number (9 numbres)" name="form1"
+                 oninvalid="setCustomValidity('Insert a valid mobile phone (9 digits)')"
+                 oninput="setCustomValidity('')">
+        </div>
+        <div class="form-group">
+          <label for="select1">Issue</label>
+          <select class="form-control" id="select1" required="required" (change)="valid('select1')" name="form1">
+            <option value="">Choose one</option>
+            <option>General</option>
+            <option>Problems in the store</option>
+            <option>Refound</option>
+            <option>Prices</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="textarea1">Description</label>
+          <textarea class="form-control" id="textarea1" required="required" (keyup)="valid('textarea1')" rows="3"
+                    placeholder="Description of the issue" name="form1"></textarea>
+        </div>
+        <div class="form-group">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" required="required" id="check1" disabled
+                   (change)="activeSubmit()">
+            <label class="custom-control-label" for="check1">Acept terms conditions</label>
+          </div>
 
-            </div>
+        </div>
 
-            <input type="submit" class="btn btn-primary" id="send" value="Send" disabled>
-        </fieldset>
+        <input type="submit" class="btn btn-primary" id="send" value="Send" disabled (click)="alertNotImplemented()">
+      </fieldset>
     </form>
 
-</div>
+  </div>
 </div>
