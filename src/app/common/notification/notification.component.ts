@@ -15,6 +15,7 @@ export class NotificationComponent implements OnInit {
   duration: number;
 
   constructor(private notificationService: NotificationService) {
+    //Inicializa los parametros de la notificacion
     this.notificationService.event.subscribe((notification) => {
       this.type = notification.type;
       this.message = notification.message;
@@ -26,7 +27,7 @@ export class NotificationComponent implements OnInit {
   ngOnInit() {
     this.visible = false;
   }
-
+  //funcion que muestra la notificacion
   activateNotification() {
     this.visible = true;
     setTimeout(() => {

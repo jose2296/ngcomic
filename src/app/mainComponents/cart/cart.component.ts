@@ -132,7 +132,7 @@ export class CartComponent implements OnInit {
     return array;
   }
 
-
+  //Eliminar la variable del localstorage
   removeCart(){
     localStorage.setItem("cart","");
     this.updateData([]);
