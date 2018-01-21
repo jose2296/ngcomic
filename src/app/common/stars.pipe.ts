@@ -5,12 +5,9 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class StarsPipe implements PipeTransform {
 
-
   str_stars: any = '';
 
   transform(value: any, args?: any): any {
-
-
     if (value === 0) {
       return '😞 Bad Rate';
     }

@@ -20,7 +20,7 @@ export class DataservicesService {
     this.news = af.list("/news");
   }
 
-  
+  //actualizar el contador del carro
   setCountCart(count) {
     this.countCart = count;
     this.event.emit(this.countCart)

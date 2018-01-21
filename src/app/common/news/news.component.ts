@@ -15,6 +15,7 @@ export class NewsComponent implements OnInit {
 
   constructor(private _ds:DataservicesService) {
     this.complete = false;
+    //guardar las noticias desde la base de datos 
     _ds.news.valueChanges().subscribe(news =>{
       this.news = news;
       this.complete = true;

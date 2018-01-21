@@ -98,7 +98,7 @@ export class ProductDetailsComponent implements OnInit {
     this.notificationService.triggerNotification({
       'type': 'info',
       'message': 'Article added to the cart',
-      'duration': 500
+      'duration': 1000
     });
   }
 
