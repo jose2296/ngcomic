@@ -1,20 +1,102 @@
-article{
-  border-radius: 5px;
-  border: 2px solid black;
-  height: 20rem;
-  background-image: url("https://comicvine.gamespot.com/api/image/original/5990333-deck.jpg");
-  background-size: 100%;
-  background-position: center;
-  margin-bottom: 1rem;
-  text-align: center;
-  line-height: 20rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+article {
+
+    margin-bottom: 1rem;
+
 }
 
-article h1{
-  font-family: 'Bangers', cursive;
-  color: white;
-  text-shadow: 2px 0px 5px #1a1a1a;
+article h1, h2 {
+    font-family: 'Bangers', cursive;
+    text-shadow: 2px 0px 5px #1a1a1a;
+    color: rgb(255,214,0);
+}
+
+* {
+    padding: 0;
+}
+
+.row {
+    position: relative;
+    width: 100%;
+    left: 1em;
+}
+/*Estilos para el texto del anuncio*/
+.adtext {
+    text-align: center;
+    padding-top: 9em;
+
+}
+/*Estilos comunes para los dos contenedores que giran*/
+.cont {
+
+    height: 23em;
+    transform-style: preserve-3d;
+    animation: rotateX 10s infinite alternate;
+}
+/*Delay para uno de los contenedores*/
+.cont-delay {
+
+    animation-delay: 0.5s;
+
+}
+
+[class*='side'] {
+
+    height: 100%;
+}
+
+.side {
+
+    transform: rotateX(-90deg);
+}
+
+.side-back {
+    position: relative;
+    top: -22.7em;
+}
+
+/*Fondos para todas las caras de los contenedores*/
+.face1A {
+
+    background: url("http://www.universdescomics.com/wp-content/uploads/2017/03/0085a47722e3b3307ecfb18afc2eae9d.jpg");
+
+}
+
+.face1B {
+    background: url("https://static.comicvine.com/uploads/original/0/40/2893245-1024x656xjlacarlomichelini_1024x656.jpg.pagespeed.ic.skwuz3xo4d.jpg");
+
+}
+
+.face2A {
+
+    background: url("https://flavorwire.files.wordpress.com/2014/07/comic-con-logo.png");
+
+}
+
+.face2B {
+    background-color: black;
+
+}
+/*Las imagenes rellenarán todo el contenedor */
+[class*='face'] {
+    background-size: 100% 100%;
+
+}
+
+@keyframes rotateX {
+    0% {
+        transform: rotateX(0deg);
+
+    }
+    25% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(90deg);
+    }
+
+    100% {
+        transform: rotateX(90deg);
+
+    }
+
 }
