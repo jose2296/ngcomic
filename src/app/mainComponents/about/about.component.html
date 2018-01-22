@@ -50,14 +50,14 @@
           <label for="tel1">Telephone</label>
           <input type="tel" class="form-control" id="tel1" (keyup)="valid('tel1')" maxlength="9" minlength="9"
                  placeholder="Enter a telephone number (9 numbres)"
-                 oninvalid="setCustomValidity('Insert a valid telephone (9 digits)')" oninput="setCustomValidity('')">
+                 oninvalid="setCustomValidity('Insert a valid telephone (9 digits)')" oninput="setCustomValidity('')" pattern="\d{1,9}">
         </div>
         <div class="form-group">
           <label for="tel2">Mobile phone</label>
           <input type="tel" class="form-control" id="tel2" (keyup)="valid('tel2')" maxlength="9" minlength="9"
                  required="" placeholder="Enter a mobile phone number (9 numbres)" name="form1"
                  oninvalid="setCustomValidity('Insert a valid mobile phone (9 digits)')"
-                 oninput="setCustomValidity('')">
+                 oninput="setCustomValidity('')"  pattern="\d{1,9}">
         </div>
         <div class="form-group">
           <label for="select1">Issue</label>
