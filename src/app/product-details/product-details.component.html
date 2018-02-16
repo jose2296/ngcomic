@@ -27,11 +27,14 @@
           <h2>{{comic.issueName}}</h2>
         </div>
         <div class="rate-price row">
-          <div class="rate col-md-6">
+          <div class="rate col-md-4">
             Rate: {{comic.rate | stars}}
           </div>
-          <div class="price col-md-6">
+          <div class="price col-md-3">
             Price: {{comic.price | currency}}
+          </div>
+          <div class="col-md-5">
+            Date: {{comic.coverDate}}
           </div>
 
         </div>
