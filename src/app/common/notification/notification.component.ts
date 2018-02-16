@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NotificationService} from '../../_services/notification.service';
 import {logger} from 'codelyzer/util/logger';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-notification',
@@ -20,13 +21,16 @@ export class NotificationComponent implements OnInit {
       this.type = notification.type;
       this.message = notification.message;
       this.duration = notification.duration;
-      this.activateNotification();
+      // this.activateNotification();
+      swal('?Notification?');
     });
   }
 
   ngOnInit() {
     this.visible = false;
   }
+  //@deprecated
+  // Notificación antigua, usar la funcion swal en su lugar
   //funcion que muestra la notificacion
   activateNotification() {
     this.visible = true;
