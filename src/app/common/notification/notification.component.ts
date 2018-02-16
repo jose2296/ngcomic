@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {NotificationService} from '../../_services/notification.service';
-import {logger} from 'codelyzer/util/logger';
 import swal from 'sweetalert2';
 
 @Component({
