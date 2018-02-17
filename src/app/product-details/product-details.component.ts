@@ -66,28 +66,32 @@ export class ProductDetailsComponent implements OnInit {
 
   //Funcion que añade el comics segun el id que se le pase al carro (localStorage)
   addCart(id) {
-    if (localStorage.getItem('cart') === '' || localStorage.getItem('cart') == null) {
+    if (localStorage.getItem('cart') === '' || localStorage.getItem('cart') === null) {
       localStorage.setItem('cart', id);
+      this._ds.setComicQuantity(0,1);      
     } else {
-      localStorage.setItem('cart', localStorage.getItem('cart') + ',' + id);
+      if(localStorage.getItem("cart").split(",").indexOf(id.toString()) === -1){
+        localStorage.setItem('cart', localStorage.getItem('cart') + ',' + id);
+        this._ds.setComicQuantity(localStorage.getItem("cart").split(",").indexOf(id.toString()),1);        
+      }else{
+        this._ds.setComicQuantity(localStorage.getItem("cart").split(",").indexOf(id.toString()),1);
+      }
     }
-
-    this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
-  }
+}
 
   //Funcion que añade todos los comics de un volmen al carro (localStorage)
   addVolume(idVol){
-    let comicsVol = [];
-    for (let i = 0; i < idVol.length; i++) {
-      comicsVol.push(idVol[i]);
-    }
+    // let comicsVol = [];
+    // for (let i = 0; i < idVol.length; i++) {
+    //   comicsVol.push(idVol[i]);
+    // }
 
-    let a = comicsVol.concat(localStorage.getItem("cart") !== "" && localStorage.getItem("cart") !== null ? localStorage.getItem("cart").split(",") : []);
+    // let a = comicsVol.concat(localStorage.getItem("cart") !== "" && localStorage.getItem("cart") !== null ? localStorage.getItem("cart").split(",") : []);
     
 
-    localStorage.setItem("cart",a.join(","))
+    // localStorage.setItem("cart",a.join(","))
     
-    this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
+    // this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
     
   }
 

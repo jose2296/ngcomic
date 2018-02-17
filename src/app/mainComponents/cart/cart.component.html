@@ -19,8 +19,9 @@
         </tr>
       </thead>
       <tbody>
-        <ng-container *ngIf="cartComics.length > 0">
-          <tr class="comic" *ngFor="let comic of cartComics">
+        <ng-container *ngIf="comics.length > 0">
+          <tr class="comic" *ngFor="let comic of comics; let i = index">
+            <!-- Index para la cantidad .................................................. -->
             <td class="img" [routerLink]="['/shop', comic.issueId]">
               <app-image [image]="comic.issueImage.small_url"></app-image>
             </td>
@@ -28,29 +29,28 @@
               {{comic.issueName}}
               <br> {{comic.volumeName}}
             </td>
-            <td>
-              {{quantity[comic.issueId]}}
-              <br>
-              <button type="button" class="quantitydelete btn btn-primary" (click)="deleteQuantity(comic.issueId)">
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            <td class="quantity">
+              <button type="button" class=" btn btn-primary" (click)="buttonQuantity(i,-1)">
+                  <i class="fa fa-minus"></i>
               </button>
-              <button type="button" class="quantitydelete btn btn-primary" (click)="deleteAllQuantity(comic.issueId)">
-                <i class="fa fa-times" aria-hidden="true"></i>
+              <input type="number" min="1" value={{comicsQuantity[i]}} [(ngModel)]="comicsQuantity[i]" (ngModelChange)="onChange($event,i)">
+              <button type="button" class=" btn btn-primary" (click)="buttonQuantity(i,1)">
+                  <i class="fa fa-plus"></i>
               </button>
             </td>
             <td>{{comic.price | currency}}</td>
           </tr>
           <tr>
             <td colspan="2"></td>
-              <td >
-                  <button type="button" class="p-3 btn btn-primary" (click)="this.alertNotImplemented()">Buy Cart</button>
-              </td>
-              <td >
-                  <button type="button" class="p-3 btn btn-primary" (click)="removeCart()">Remove Cart</button>
-              </td>
+            <td>
+              <button type="button" class="p-3 btn btn-primary" (click)="this.alertNotImplemented()">Buy Cart</button>
+            </td>
+            <td>
+              <button type="button" class="p-3 btn btn-primary" (click)="removeCart()">Remove Cart</button>
+            </td>
           </tr>
         </ng-container>
-        <ng-container *ngIf="cartComics <= 0">
+        <ng-container *ngIf="comicsQuantity <= 0">
           No comics
         </ng-container>
       </tbody>

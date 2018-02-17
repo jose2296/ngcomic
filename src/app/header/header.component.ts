@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private searchService: SearchService, private router: Router, private _ds: DataservicesService) {
     //variable para saber la cantidad de productos del carro
-    this.countCart = (localStorage.getItem('cart') !== '' && localStorage.getItem('cart') != null  ? localStorage.getItem('cart').split(',').length : 0);
+    this.countCart = _ds.countCart;
 
     //actualizar el valor de la cantidad de productos en el carro
     _ds.event.subscribe(() => {

@@ -49,3 +49,23 @@ td{
 .loading{
     margin: auto;
 }
+
+
+
+
+.quantity{
+    display: flex;
+    justify-content: center;
+}
+
+.quantity > *{
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.quantity > input{
+    flex: 2;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
