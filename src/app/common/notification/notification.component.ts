@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {NotificationService} from '../../_services/notification.service';
+import { Component, OnInit } from '@angular/core';
+import { NotificationService } from '../../_services/notification.service';
 import swal from 'sweetalert2';
 
 @Component({
@@ -9,37 +9,24 @@ import swal from 'sweetalert2';
 })
 export class NotificationComponent implements OnInit {
 
-  visible: boolean;
-  type: string;
-  message: string;
-  duration: number;
+  config: {};
 
   constructor(private notificationService: NotificationService) {
     //Inicializa los parametros de la notificacion
     this.notificationService.event.subscribe((notification) => {
-      this.type = notification.type;
-      this.message = notification.message;
-      this.duration = notification.duration;
-      // this.activateNotification();
-      swal('?Notification?');
+      this.config = notification.config;
+      this.activateNotification();
     });
   }
 
   ngOnInit() {
-    this.visible = false;
-  }
-  //@deprecated
-  // Notificación antigua, usar la funcion swal en su lugar
-  //funcion que muestra la notificacion
-  activateNotification() {
-    this.visible = true;
-    setTimeout(() => {
-      this.visible = false;
-    }, this.duration);
   }
 
-  funcion() {
-    console.log(this.visible);
+  activateNotification() {
+    swal(this.config).then((result) => {
+      this.notificationService.returnValue(result.value);
+    })
+
   }
 
 }

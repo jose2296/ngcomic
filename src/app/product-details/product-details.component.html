@@ -27,11 +27,14 @@
           <h2>{{comic.issueName}}</h2>
         </div>
         <div class="rate-price row">
-          <div class="rate col-md-6">
+          <div class="rate col-md-4">
             Rate: {{comic.rate | stars}}
           </div>
-          <div class="price col-md-6">
+          <div class="price col-md-3">
             Price: {{comic.price | currency}}
+          </div>
+          <div class="col-md-5">
+            Date: {{comic.coverDate}}
           </div>
 
         </div>
@@ -73,7 +76,7 @@
             {{volume.volumeName}}
           </h2>
           <div class="addCart col-md-12 col-lg-4">
-            <button type="button" class="btn btn-primary" (click)="addVolume(volume.volumeIssues); this.alertCart()">Add to cart</button>
+            <button type="button" class="btn btn-primary" (click)="addVolume(volume.volumeIssues); this.alertVolume()">Add to cart</button>
           </div>
         </div>
 

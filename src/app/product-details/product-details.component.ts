@@ -38,7 +38,7 @@ export class ProductDetailsComponent implements OnInit {
         this.comic = this.comics[parametros.id];
 
         this.currentVComic = this.comic;
-        //almacenar los comics del volumen 
+        //almacenar los comics del volumen
         _ds.volumes.valueChanges().subscribe(volumes => {
 
           this.volume = volumes[this.comic.volumeId];
@@ -66,29 +66,33 @@ export class ProductDetailsComponent implements OnInit {
 
   //Funcion que añade el comics segun el id que se le pase al carro (localStorage)
   addCart(id) {
-    if (localStorage.getItem('cart') === '' || localStorage.getItem('cart') == null) {
+    if (localStorage.getItem('cart') === '' || localStorage.getItem('cart') === null) {
       localStorage.setItem('cart', id);
+      this._ds.setComicQuantity(0,1);
     } else {
-      localStorage.setItem('cart', localStorage.getItem('cart') + ',' + id);
+      if(localStorage.getItem("cart").split(",").indexOf(id.toString()) === -1){
+        localStorage.setItem('cart', localStorage.getItem('cart') + ',' + id);
+        this._ds.setComicQuantity(localStorage.getItem("cart").split(",").indexOf(id.toString()),1);
+      }else{
+        this._ds.setComicQuantity(localStorage.getItem("cart").split(",").indexOf(id.toString()),1);
+      }
     }
-
-    this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
-  }
+}
 
   //Funcion que añade todos los comics de un volmen al carro (localStorage)
   addVolume(idVol){
-    let comicsVol = [];
-    for (let i = 0; i < idVol.length; i++) {
-      comicsVol.push(idVol[i]);
-    }
+    // let comicsVol = [];
+    // for (let i = 0; i < idVol.length; i++) {
+    //   comicsVol.push(idVol[i]);
+    // }
 
-    let a = comicsVol.concat(localStorage.getItem("cart") !== "" && localStorage.getItem("cart") !== null ? localStorage.getItem("cart").split(",") : []);
-    
+    // let a = comicsVol.concat(localStorage.getItem("cart") !== "" && localStorage.getItem("cart") !== null ? localStorage.getItem("cart").split(",") : []);
 
-    localStorage.setItem("cart",a.join(","))
-    
-    this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
-    
+
+    // localStorage.setItem("cart",a.join(","))
+
+    // this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
+
   }
 
 
@@ -96,9 +100,13 @@ export class ProductDetailsComponent implements OnInit {
   // satisfactoriamente.
   alertCart() {
     this.notificationService.triggerNotification({
-      'type': 'info',
-      'message': 'Article added to the cart',
-      'duration': 1000
+      'config': {
+        position: 'top-end',
+        type: 'success',
+        title: 'Product added to the cart',
+        showConfirmButton: false,
+        timer: 1500
+      }
     });
   }
 
@@ -106,9 +114,21 @@ export class ProductDetailsComponent implements OnInit {
   // implementada aun.
   alertNotImplemented() {
     this.notificationService.triggerNotification({
-      'type': 'warning',
-      'message': 'Sorry, this feature is not implemented yet...',
-      'duration': 2000
+      'config': {
+        type: 'info',
+        title: 'This feature is not implemented yet, sorry 🙁',
+        confirmButtonText: 'Okey'
+      }
+    });
+  }
+
+  alertVolume(){
+    this.notificationService.triggerNotification({
+      'config': {
+        type: 'info',
+        title: 'Volume added',
+        confirmButtonText: 'Okey'
+      }
     });
   }
 
