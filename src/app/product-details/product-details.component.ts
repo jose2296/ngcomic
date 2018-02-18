@@ -1,11 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
-import {ActivatedRoute} from '@angular/router';
+import {
+  ActivatedRoute
+} from '@angular/router';
 
-import {AngularFireDatabase} from 'angularfire2/database';
+import {
+  AngularFireDatabase
+} from 'angularfire2/database';
 
-import {DataservicesService} from '../_services/dataservices.service';
-import {NotificationService} from '../_services/notification.service';
+import {
+  DataservicesService
+} from '../_services/dataservices.service';
+import {
+  NotificationService
+} from '../_services/notification.service';
 
 
 @Component({
@@ -55,8 +66,7 @@ export class ProductDetailsComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   //Funcion que cambia la imagen que se ve en el visor segun el id que se pase
   changeCurrentVComicImage(id) {
@@ -67,20 +77,38 @@ export class ProductDetailsComponent implements OnInit {
   //Funcion que añade el comics segun el id que se le pase al carro (localStorage)
   addCart(id) {
     if (localStorage.getItem('cart') === '' || localStorage.getItem('cart') === null) {
-      localStorage.setItem('cart', id);
-      this._ds.setComicQuantity(0,1);
+      let cartComicObject = [{
+        "id": id,
+        "quantity": 1
+      }];
+      localStorage.setItem('cart', JSON.stringify(cartComicObject));
+      // this._ds.setComicQuantity(0,1);
     } else {
-      if(localStorage.getItem("cart").split(",").indexOf(id.toString()) === -1){
-        localStorage.setItem('cart', localStorage.getItem('cart') + ',' + id);
-        this._ds.setComicQuantity(localStorage.getItem("cart").split(",").indexOf(id.toString()),1);
-      }else{
-        this._ds.setComicQuantity(localStorage.getItem("cart").split(",").indexOf(id.toString()),1);
+      let cart = JSON.parse(localStorage.getItem('cart'));
+      let equal = false;
+      cart.map((el) => {
+        if (el.id === id) {
+          el.quantity++;
+          equal = true;
+        }
+      })
+
+      if (!equal) {
+        cart.push({
+          id: id,
+          quantity: 1
+        })
       }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
     }
-}
+
+    this._ds.setCountCart();
+
+  }
 
   //Funcion que añade todos los comics de un volmen al carro (localStorage)
-  addVolume(idVol){
+  addVolume(idVol) {
     // let comicsVol = [];
     // for (let i = 0; i < idVol.length; i++) {
     //   comicsVol.push(idVol[i]);
@@ -122,7 +150,7 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  alertVolume(){
+  alertVolume() {
     this.notificationService.triggerNotification({
       'config': {
         type: 'info',

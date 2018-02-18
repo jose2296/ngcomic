@@ -20,127 +20,87 @@ import {
 
 export class CartComponent implements OnInit {
 
-  comics = [];
-
-
+  comics:Array<any>;
   total: number;
   complete: boolean;
-  comicsQuantity;
+  cartComicsIds:Array<any>;
 
-  ngOnInit() {
+ngOnInit() {
 
+}
+
+constructor(private _ds: DataservicesService, private notificationService: NotificationService) {
+
+  this.cartComicsIds = (localStorage.getItem("cart") !== null && localStorage.getItem("cart") !== "") ? JSON.parse(localStorage.getItem("cart")) : [];
+  
+  this._ds.setCountCart();
+
+  this.comics = [];
+  this.total = 0;
+
+  //almenzar los comics y la cantidad total del carro
+  this._ds.issuesId.valueChanges().subscribe(comics => {
+    for (let i = 0; i < this.cartComicsIds.length; i++) {
+      this.comics.push(comics[this.cartComicsIds[i].id.toString()]);
+      this.total += comics[this.cartComicsIds[i].id.toString()].price * this.cartComicsIds[i].quantity
+
+    }
+    this.complete = true;
+
+  })
+
+}
+
+
+
+modifyQuantity(index, value) {
+
+  this.cartComicsIds = (localStorage.getItem("cart") !== null && localStorage.getItem("cart") !== "") ? JSON.parse(localStorage.getItem("cart")) : [];
+  
+  this.cartComicsIds[index].quantity += value;
+
+  localStorage.setItem('cart', JSON.stringify(this.cartComicsIds));
+
+  this.total += this.comics[index].price * value;
+
+  this._ds.setCountCart();
+  
+}
+
+onChange($event, i) {
+
+  if($event < 0 || $event === null){
+    this.cartComicsIds[i].quantity = 1;
   }
+  
+  localStorage.setItem('cart', JSON.stringify(this.cartComicsIds));
+  
+  this.total = 0;
 
-  constructor(private _ds: DataservicesService, private notificationService: NotificationService) {
-    
-    let cartComicsIds = (localStorage.getItem("cart") !== null && localStorage.getItem("cart") !== "") ? localStorage.getItem("cart").split(",") : [];
+  //almenzar los comics y la cantidad total del carro
+  this._ds.issuesId.valueChanges().subscribe(comics => {
+    for (let i = 0; i < this.cartComicsIds.length; i++) {
+      this.total += comics[this.cartComicsIds[i].id.toString()].price * this.cartComicsIds[i].quantity
 
+    }
+    this.complete = true;
 
-    this.comicsQuantity = this._ds.comicQuantity;
+  })
 
-    this.comics = [];
-    this.total = 0;
-
-    //almenzar los comics y la cantidad total del carro
-    this._ds.issuesId.valueChanges().subscribe(comics=>{
-      for (let i = 0; i < cartComicsIds.length; i++) {
-        this.comics.push(comics[cartComicsIds[i]]);
-        this.total += comics[cartComicsIds[i]].price * this.comicsQuantity[i]
-        
-      }
-      this.complete = true;
-
-    })
-
-  }
-
+  this._ds.setCountCart();
   
 
-
-  buttonQuantity(index,value){
-
-    let deteteComic = false;
-
-    let cartComicsIds = (localStorage.getItem("cart") !== null && localStorage.getItem("cart") !== "") ? localStorage.getItem("cart").split(",") : [];
-    
-    
-    let cartComicsQuantity = (localStorage.getItem("quantity") !== null && localStorage.getItem("quantity") !== "") ? localStorage.getItem("quantity").split(",") : [];
-
-
-    this._ds.setComicQuantity(index,value);
-    // cartComicsQuantity[index] = parseInt(cartComicsQuantity[index]) + value;
-    cartComicsQuantity = this._ds.comicQuantity;
-
-    if(parseInt(cartComicsQuantity[index]) <= 0){
-      cartComicsIds.splice(index,1);
-      cartComicsQuantity.splice(index,1);
-      localStorage.setItem("cart",cartComicsIds.join(","));
-      deteteComic = true;
-      this.comics = [];
-    }
-
-    localStorage.setItem("quantity",cartComicsQuantity.join(","));
-
-
-    this.comicsQuantity = cartComicsQuantity;
-    
-
-    this.total = 0;
-
-    //almenzar los comics y la cantidad total del carro
-    this._ds.issuesId.valueChanges().subscribe(comics=>{
-      for (let i = 0; i < cartComicsIds.length; i++) {
-        if(deteteComic){
-          this.comics.push(comics[cartComicsIds[i]]);
-        }
-        this.total += comics[cartComicsIds[i]].price * this.comicsQuantity[i]
-      }
-      this.complete = true;
-
-    })
-
-
-  }
-
-
-  onChange($event,i){
-
-    let cartComicsIds = (localStorage.getItem("cart") !== null && localStorage.getItem("cart") !== "") ? localStorage.getItem("cart").split(",") : [];
-    
-    
-    let cartComicsQuantity = (localStorage.getItem("quantity") !== null && localStorage.getItem("quantity") !== "") ? localStorage.getItem("quantity").split(",") : [];
-
-    this._ds.setComicQuantity(i,$event,true);
-    cartComicsQuantity[i] = $event;
-
-    localStorage.setItem("quantity",cartComicsQuantity.join(","));
-
-
-    this.comicsQuantity = cartComicsQuantity;
-    
-
-    this.total = 0;
-
-    //almenzar los comics y la cantidad total del carro
-    this._ds.issuesId.valueChanges().subscribe(comics=>{
-      for (let i = 0; i < cartComicsIds.length; i++) {
-        this.total += comics[cartComicsIds[i]].price * this.comicsQuantity[i]
-      }
-      this.complete = true;
-
-    })
-    
-  }
+}
 
 
 
-  alertNotImplemented() {
-    this.notificationService.triggerNotification({
-      'type': 'warning',
-      'message': 'Sorry, this feature is not implemented yet...',
-      'duration': 2000
-    });
-  }
+alertNotImplemented() {
+  this.notificationService.triggerNotification({
+    'type': 'warning',
+    'message': 'Sorry, this feature is not implemented yet...',
+    'duration': 2000
+  });
+}
 
 
 }
