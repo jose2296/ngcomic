@@ -8,66 +8,38 @@
     </div>
   </div>
 
+  <ng-container *ngIf="comics.length > 0">
+    <div class="row comic" *ngFor="let comic of comics; let i = index">
+      <div class="col-4 col-md-2 col-lg-1">
+        <div class="img" [routerLink]="['/shop', comic.issueId]">
+          <app-image [image]="comic.issueImage.small_url"></app-image>
+        </div>
+      </div>
+      <div class="col-8 col-md-10 col-lg-11">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-6 volumeInfo">
+            {{comic.issueName}}
+            <br> {{comic.volumeName}}
+          </div>
+          <div class="col-12 col-sm-12 col-md-4 quantity row p-3">
+            <button type="button" class="col-4 p-0 btn btn-primary" [disabled]="this.cartComicsIds[i].quantity <= 1" (click)="modifyQuantity(i,-1)">
+              <i class="fa fa-minus"></i>
+            </button>
+            <input type="number"  class="col-4" min="1" value={{cartComicsIds[i].quantity}} [(ngModel)]="cartComicsIds[i].quantity" (ngModelChange)="onChange($event,i)">
+            <button type="button" class="col-4 p-0 btn btn-primary" (click)="modifyQuantity(i,1)">
+              <i class="fa fa-plus"></i>
+            </button>
+          </div>
+          <div class="col-12 col-sm-12 col-md-2">{{comic.price | currency}}</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
 
-<!-- 
+  <ng-container *ngIf="comics.length <= 0">
+    No comics
+  </ng-container>
 
-  ************* Arreglar la tabla ******************
-      Para movil dos columnas
-      Para tablet tres columnas
-      Para descktop cuatro columnas
-  **************************************************
-
--->
-
-  <table class="table table-hover">
-    <ng-container *ngIf="complete">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th class="volumeInfo">Product</th>
-          <th class="textCenter">Quantity</th>
-          <th class="textCenter">Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <ng-container *ngIf="comics.length > 0">
-          <tr class="comic" *ngFor="let comic of comics; let i = index">
-            <!-- Index para la cantidad .................................................. -->
-            <td class="img" [routerLink]="['/shop', comic.issueId]">
-              <app-image [image]="comic.issueImage.small_url"></app-image>
-            </td>
-            <td class="volumeInfo">
-              {{comic.issueName}}
-              <br> {{comic.volumeName}}
-            </td>
-            <td class="quantity">
-              <button type="button" class="btn btn-primary" [disabled]="this.cartComicsIds[i].quantity <= 1" (click)="modifyQuantity(i,-1)">
-                <i class="fa fa-minus"></i>
-              </button>
-              <input type="number" min="1" value={{cartComicsIds[i].quantity}} [(ngModel)]="cartComicsIds[i].quantity" (ngModelChange)="onChange($event,i)">
-              <button type="button" class=" btn btn-primary" (click)="modifyQuantity(i,1)">
-                <i class="fa fa-plus"></i>
-              </button>
-            </td>
-            <td>{{comic.price | currency}}</td>
-          </tr>
-          <tr>
-            <td colspan="2"></td>
-            <td>
-              <button type="button" class="btn btn-primary" (click)="this.alertNotImplemented()">Buy Cart</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-primary" (click)="this.alertCartRemoved()">Remove Cart</button>
-            </td>
-          </tr>
-        </ng-container>
-        <ng-container *ngIf="comicsQuantity <= 0">
-          No comics
-        </ng-container>
-      </tbody>
-    </ng-container>
-
-  </table>
 
 
   <div class="loading">
