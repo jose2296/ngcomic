@@ -8,3 +8,10 @@ textarea{
     resize: none;
 
 }
+.errorLabel{
+
+    padding-top:10px ;
+    color: #d9534f;
+   visibility: hidden;
+
+}

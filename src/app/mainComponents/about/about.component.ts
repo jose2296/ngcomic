@@ -25,9 +25,13 @@ export class AboutComponent implements OnInit {
     /*Agregar o quitar estilos a los imputs si el campo es valido*/
     if (element.checkValidity()) {
       element.classList.remove('is-invalid');
+        element.nextElementSibling.setAttribute('style', ' visibility:hidden');
       element.classList.add('is-valid');
     } else {
+
       element.classList.add('is-invalid');
+     element.nextElementSibling.setAttribute('style', ' visibility:visible');
+
     }
 
     /*Recorre todos los elementos requeridos y si todos están llenos, se activa el checkbox*/

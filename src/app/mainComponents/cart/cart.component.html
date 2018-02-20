@@ -1,49 +1,66 @@
 <div class="cart">
-  <div class="row">
-    <div class="col-md-8">
-      <h1>Cart</h1>
-    </div>
-    <div class="col-md-4">
-      <h3>Total: {{total| currency}}</h3>
-    </div>
-  </div>
-
-  <ng-container *ngIf="comics.length > 0">
-    <div class="row comic" *ngFor="let comic of comics; let i = index">
-      <div class="col-4 col-md-2 col-lg-1">
-        <div class="img" [routerLink]="['/shop', comic.issueId]">
-          <app-image [image]="comic.issueImage.small_url"></app-image>
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Cart</h1>
         </div>
-      </div>
-      <div class="col-8 col-md-10 col-lg-11">
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-6 volumeInfo">
-            {{comic.issueName}}
-            <br> {{comic.volumeName}}
-          </div>
-          <div class="col-12 col-sm-12 col-md-4 quantity row p-3">
-            <button type="button" class="col-4 p-0 btn btn-primary" [disabled]="this.cartComicsIds[i].quantity <= 1" (click)="modifyQuantity(i,-1)">
-              <i class="fa fa-minus"></i>
-            </button>
-            <input type="number"  class="col-4" min="1" value={{cartComicsIds[i].quantity}} [(ngModel)]="cartComicsIds[i].quantity" (ngModelChange)="onChange($event,i)">
-            <button type="button" class="col-4 p-0 btn btn-primary" (click)="modifyQuantity(i,1)">
-              <i class="fa fa-plus"></i>
-            </button>
-          </div>
-          <div class="col-12 col-sm-12 col-md-2">{{comic.price | currency}}</div>
+        <div class="col-md-4">
+            <h3>Total: {{total| currency}}</h3>
         </div>
-      </div>
     </div>
-  </ng-container>
 
-  <ng-container *ngIf="comics.length <= 0">
-    No comics
-  </ng-container>
+    <ng-container *ngIf="comics.length > 0">
+        <div class="row comic" *ngFor="let comic of comics; let i = index">
+            <div class="col-4 col-md-2 col-lg-1">
+                <div class="img" [routerLink]="['/shop', comic.issueId]">
+                    <app-image [image]="comic.issueImage.small_url"></app-image>
+                </div>
+            </div>
+            <div class="col-8 col-md-10 col-lg-11">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-5 volumeInfo p-3">
+                        {{comic.issueName}}
+                        <br> {{comic.volumeName}}
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 quantity row p-4">
+                        <div class="col-2"></div>
+                        <button type="button" class="col-3 p-0 btn btn-primary"
+                                [disabled]="this.cartComicsIds[i].quantity <= 1" (click)="modifyQuantity(i,-1)">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <input type="number" class="col-2 p-0 text-center" min="1" value={{cartComicsIds[i].quantity}}
+                               [(ngModel)]="cartComicsIds[i].quantity" (ngModelChange)="onChange($event,i)">
+                        <button type="button" class="col-3 p-0 btn btn-primary" (click)="modifyQuantity(i,1)">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <div class="col-2"></div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-3 price p-3 pl-5">{{comic.price | currency}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-end p-3">
+            <div class="col-12 col-md-4"></div>
+            <div class="col-12 col-md-4 p-3 text-center">
+                <button type="button" class="btn btn-danger" (click)="removeCart()">Remove Cart</button>
+            </div>
+            <div class="col-12 col-md-4 p-3 text-center">
+                <button type="button" class="btn btn-primary" (click)="this.alertNotImplemented()">
+                    Buy Cart
+                </button>
+            </div>
+        </div>
+
+    </ng-container>
 
 
+    <ng-container *ngIf="comics.length <= 0 && complete">
+        No comics
+    </ng-container>
 
-  <div class="loading">
-    <app-loading *ngIf="!complete"></app-loading>
-  </div>
+
+    <div class="loading">
+        <app-loading *ngIf="!complete"></app-loading>
+    </div>
 
 </div>

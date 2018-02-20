@@ -22,45 +22,52 @@
     <form action="" method="post" ngNativeValidate>
       <fieldset>
         <h2>Contact form</h2>
+
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="name">Name * </label>
           <input type="text" class="form-control " id="name" (keyup)="valid('name')"
                  pattern="[a-zA-Z]+" required="" placeholder="Enter a name" name="form1"
                  oninvalid="setCustomValidity('Insert a valid name')" oninput="setCustomValidity('')">
+          <label class="errorLabel" for="">Only letters</label>
         </div>
         <div class="form-group">
-          <label for="surname">First surname</label>
+          <label for="surname">First surname *</label>
           <input type="text" class="form-control" id="surname" pattern="[a-zA-Z]+" (keyup)="valid('surname')"
                  required="" placeholder="Enter a surname" name="form1"
                  oninvalid="setCustomValidity('Insert a valid first surname')" oninput="setCustomValidity('')">
+          <label class="errorLabel" for="">Only letters</label>
         </div>
         <div class="form-group">
-          <label for="surname1">Second surname</label>
+          <label for="surname1">Second surname *</label>
           <input type="text" class="form-control" id="surname1" pattern="[a-zA-Z]+" (keyup)="valid('surname1')"
                  required="" placeholder="Enter a second surname" name="form1"
                  oninvalid="setCustomValidity('Insert a second surname')" oninput="setCustomValidity('')">
+          <label class="errorLabel" for="">Only letters</label>
         </div>
         <div class="form-group">
-          <label for="email1">Email address</label>
+          <label for="email1">Email address *</label>
           <input type="email" class="form-control" id="email1" (keyup)="valid('email1')" required=""
                  placeholder="Enter a email" name="form1"
                  oninvalid="setCustomValidity('Insert a valid email address')" oninput="setCustomValidity('')">
+          <label class="errorLabel" for="">example@example</label>
         </div>
         <div class="form-group">
-          <label for="tel1">Telephone</label>
+          <label for="tel1">Telephone (optional)</label>
           <input type="tel" class="form-control" id="tel1" (keyup)="valid('tel1')" maxlength="9" minlength="9"
                  placeholder="Enter a telephone number (9 numbres)"
                  oninvalid="setCustomValidity('Insert a valid telephone (9 digits)')" oninput="setCustomValidity('')" pattern="\d{1,9}">
+          <label class="errorLabel" for="">Exact 9 numbers</label>
         </div>
         <div class="form-group">
-          <label for="tel2">Mobile phone</label>
+          <label for="tel2">Mobile phone *</label>
           <input type="tel" class="form-control" id="tel2" (keyup)="valid('tel2')" maxlength="9" minlength="9"
                  required="" placeholder="Enter a mobile phone number (9 numbres)" name="form1"
                  oninvalid="setCustomValidity('Insert a valid mobile phone (9 digits)')"
                  oninput="setCustomValidity('')"  pattern="\d{1,9}">
+           <label class="errorLabel" for="">Exact 9 numbers</label>
         </div>
         <div class="form-group">
-          <label for="select1">Issue</label>
+          <label for="select1">Issue *</label>
           <select class="form-control" id="select1" required="required" (change)="valid('select1')" name="form1">
             <option value="">Choose one</option>
             <option>General</option>
@@ -69,11 +76,13 @@
             <option>Prices</option>
             <option>Other</option>
           </select>
+          <label class="errorLabel" for=""></label>
         </div>
         <div class="form-group">
-          <label for="textarea1">Description</label>
+          <label for="textarea1">Description *</label>
           <textarea class="form-control" id="textarea1" required="required" (keyup)="valid('textarea1')" rows="3"
                     placeholder="Description of the issue" name="form1"></textarea>
+          <label class="errorLabel" for=""></label>
         </div>
         <div class="form-group">
           <div class="custom-control custom-checkbox">
@@ -83,7 +92,7 @@
           </div>
 
         </div>
-
+        <p>Required camps (*)</p>
         <input type="submit" class="btn btn-primary" id="send" value="Send" disabled (click)="alertNotImplemented()">
       </fieldset>
     </form>

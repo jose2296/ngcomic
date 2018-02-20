@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 
 import {DataservicesService} from '../_services/dataservices.service';
-import {SearchService} from "../_services/search.service";
+import {SearchService} from '../_services/search.service';
 
 @Component({
     selector: 'app-products',
@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit {
     localOrder: boolean;
     stringSearch: string;
 
-    complete:boolean = false;
+    complete: boolean = false;
 
     constructor(private _ds: DataservicesService, private searchservice: SearchService) {
         this.lastComics = 4;
@@ -40,9 +40,9 @@ export class ProductsComponent implements OnInit {
         /*Servicio que me permite utilizar los datos introducidos en el input del componente header
          y lanzar la función search cada vez que el usuario pulse una tecla en dicho input*/
         this.searchservice.event.subscribe(() => {
-            this.stringSearch = searchservice.stringSearch
-            this.search()
-        })
+            this.stringSearch = searchservice.stringSearch;
+            this.search();
+        });
 
     }
 
@@ -59,9 +59,9 @@ export class ProductsComponent implements OnInit {
                     break;
                 /*Filtado por rate(default) o lanza la función search con el ultimo valor de string search del servicio*/
                 case'shop':
-                    this.result=this.orderArray(this.comics,'rate')
-                    this.stringSearch = this.searchservice.stringSearch
-                    if(this.stringSearch) this.search()
+                    this.result = this.orderArray(this.comics, 'rate');
+                    this.stringSearch = this.searchservice.stringSearch;
+                    if (this.stringSearch) this.search();
                     break;
             }
 
@@ -71,7 +71,7 @@ export class ProductsComponent implements OnInit {
 
     /*Función que busca si el segundo parametro está contenido en el primero*/
     searchCondition(str, searchWord = this.stringSearch) {
-        return (str.toLowerCase().indexOf(searchWord.toLowerCase()) >= 0)
+        return (str.toLowerCase().indexOf(searchWord.toLowerCase()) >= 0);
     }
 
     /*Función que filtra el array result, */
@@ -80,9 +80,9 @@ export class ProductsComponent implements OnInit {
             if (this.searchCondition(a.issueDescription) ||
                 this.searchCondition(a.issueName) ||
                 this.searchCondition(a.volumeName)) {
-                return a
+                return a;
             }
-        })
+        });
     }
 
     /*Me permite convertir una fecha, tipo string, en un número*/
@@ -119,7 +119,7 @@ export class ProductsComponent implements OnInit {
 
     /*Función que me permite cambiar el array result cuando se haga click */
     switchFilter(filter): void {
-        this.result = this.orderArray(this.result, filter)
+        this.result = this.orderArray(this.result, filter);
         if (!this.localOrder) this.result = this.result.reverse();
     }
 
