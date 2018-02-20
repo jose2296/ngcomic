@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="banner">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="banner">
   <a class="navbar-brand" routerLink="home">ngComics</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
           aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +20,9 @@
         <a class="nav-link" routerLink="cart" routerLinkActive="active"><i class="fa fa-shopping-cart"
                                                                            aria-hidden="true"></i> Cart <span
           class="badge badge-pill badge-primary" *ngIf="countCart != 0">{{countCart}}</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link route" routerLink="about" routerLinkActive="active"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

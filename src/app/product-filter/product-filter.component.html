@@ -1,23 +1,27 @@
 <section>
-  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-    <label class="btn btn-primary " (click)="updateOrder(false)"  >
-      <input type="radio" name="direction" id="option1" autocomplete="off" ><i class="fa fa-arrow-up" aria-hidden="true"></i> Asc
-    </label><label class="btn btn-primary active" (click)="updateOrder(true)">
-    <input type="radio" name="direction" checked="checked" id="option2" autocomplete="off"><i class="fa fa-arrow-down" aria-hidden="true"></i> Desc
-  </label>
+  <div class="row">
+    <div class="btn-group btn-group-toggle col-sm-12" data-toggle="buttons">
+      <label class="btn btn-primary col-sm-6 ordenboton" (click)="updateOrder(false)"  >
+        <input type="radio" name="direction" id="option1" autocomplete="off" ><i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+        </label><label class="btn btn-primary active col-sm-6  ordenboton" (click)="updateOrder(true)">
+      <input type="radio" name="direction" checked="checked" id="option2" autocomplete="off"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+    </label>
+    </div>
   </div>
-  <div class="btn-group btn-group-toggle" data-toggle="buttons" id="filters">
-    <label class="btn btn-primary" (click)="updateFilter('date')">
-      <input type="radio" name="filters" id="date" autocomplete="off"><i class="fa fa-calendar-o" aria-hidden="true"></i> Date
-    </label>
-    <label class="btn btn-primary " (click)="updateFilter('price')">
-      <input type="radio" name="filters" id="price" autocomplete="off"><i class="fa fa-usd" aria-hidden="true"></i> Price
-    </label>
-    <label class="btn btn-primary active" (click)="updateFilter('rate')">
-      <input type="radio" name="filters" id="rate" autocomplete="off"><i class="fa fa-star-half-o" aria-hidden="true"></i> Rate
-    </label>
-    <label class="btn btn-primary" (click)="updateFilter('name')">
-      <input type="radio" name="filters" id="name" autocomplete="off"><i class="fa fa-font" aria-hidden="true"></i> Name
-    </label>
+  <div class="row">
+    <div class="btn-group btn-group-toggle col-m-12 col-12 col-sm-12" data-toggle="buttons" id="filters">
+      <label class="btn btn-primary" (click)="updateFilter('date')">
+        <input type="radio" name="filters" id="date" autocomplete="off"><i class="fa fa-calendar-o" aria-hidden="true"></i> Date
+      </label>
+      <label class="btn btn-primary " (click)="updateFilter('price')">
+        <input type="radio" name="filters" id="price" autocomplete="off"><i class="fa fa-usd" aria-hidden="true"></i> Price
+      </label>
+      <label class="btn btn-primary active" (click)="updateFilter('rate')">
+        <input type="radio" name="filters" id="rate" autocomplete="off"><i class="fa fa-star-half-o" aria-hidden="true"></i> Rate
+      </label>
+      <label class="btn btn-primary" (click)="updateFilter('name')">
+        <input type="radio" name="filters" id="name" autocomplete="off"><i class="fa fa-font" aria-hidden="true"></i> Name
+      </label>
+    </div>
   </div>
 </section>

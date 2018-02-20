@@ -12,3 +12,7 @@
 #filters > *{
   margin: 0;
 }
+
+.ordenboton{
+  overflow: hidden;
+}

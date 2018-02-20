@@ -20,3 +20,28 @@
 #buscador{
   font-family: 'Bangers', cursive;
 }
+
+
+.nav-link{
+  font-size: 0.77rem;
+}
+
+ul li a.nav-link {
+  color: black;
+}
+ul li a.active{
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+ul li a.nav-link:hover{
+}
+
+
+.navbar{
+  /*width: 100%;*/
+  /*z-index: 999;*/
+  /*position: fixed;*/
+  border: none;
+  box-shadow: 0 2px 5px lightgray;
+}
