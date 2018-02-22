@@ -9,3 +9,8 @@ nos permite saltarnos la encapsulacion de Angular.*/
 .loading {
   margin: auto;
 }
+.noResults{
+  width: 100%;
+  font-size: 2em;
+  text-align: center;
+}

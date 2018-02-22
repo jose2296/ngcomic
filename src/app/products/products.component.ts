@@ -30,12 +30,14 @@ export class ProductsComponent implements OnInit {
     comics: any = [];
     localOrder: boolean;
     stringSearch: string;
+    noResults: string;
 
     complete: boolean = false;
 
     constructor(private _ds: DataservicesService, private searchservice: SearchService) {
         this.lastComics = 4;
         this.localOrder = false;
+        this.noResults = '';
 
         /*Servicio que me permite utilizar los datos introducidos en el input del componente header
          y lanzar la función search cada vez que el usuario pulse una tecla en dicho input*/
@@ -83,6 +85,8 @@ export class ProductsComponent implements OnInit {
                 return a;
             }
         });
+
+        this.noResults = (this.result.length === 0) ? 'No results' : '';
     }
 
     /*Me permite convertir una fecha, tipo string, en un número*/
