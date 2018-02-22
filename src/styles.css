@@ -12,3 +12,8 @@
 
 body{
 }
+
+
+.noradius{
+  border-radius: 0;
+}

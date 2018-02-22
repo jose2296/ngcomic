@@ -1,33 +1,36 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="banner">
-  <a class="navbar-brand" routerLink="home">ngComics</a>
-  <button class="navbar-toggler" id="menuButton" type="button" data-toggle="collapse" data-target="#navbarColor03"
-          aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <a class="navbar-brand" routerLink="home">ngComics</a>
+    <button class="navbar-toggler" id="menuButton" type="button" data-toggle="collapse" data-target="#navbarColor03"
+            aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
 
-  <div class="collapse navbar-collapse" id="navbarColor03">
-    <ul class="navbar-nav mr-auto" (click)="closeMenu()">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home" aria-hidden="true"></i>
-          Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="shop" routerLinkActive="active"><i class="fa fa-shopping-bag"
-                                                                           aria-hidden="true"></i> Store</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="cart" routerLinkActive="active"><i class="fa fa-shopping-cart"
-                                                                           aria-hidden="true"></i> Cart <span
-          class="badge badge-pill badge-primary" *ngIf="countCart != 0">{{countCart}}</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link route" routerLink="about" routerLinkActive="active"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" (keyup)="updateString()" [(ngModel)]="stringSearch" name="string"
-             placeholder="Search comics" id="buscador">
-    </form>
-  </div>
+    <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav mr-auto" (click)="closeMenu()">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home"
+                                                                                   aria-hidden="true"></i>
+                    Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="shop" routerLinkActive="active"><i class="fa fa-shopping-bag"
+                                                                                   aria-hidden="true"></i> Store</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="cart" routerLinkActive="active"><i class="fa fa-shopping-cart"
+                                                                                   aria-hidden="true"></i> Cart <span
+                        class="badge badge-pill badge-primary" *ngIf="countCart != 0">{{countCart}}</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link route" routerLink="about" routerLinkActive="active"><i class="fa fa-info-circle"
+                                                                                          aria-hidden="true"></i> About</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" (keyup)="updateString()" [(ngModel)]="stringSearch"
+                   name="string"
+                   placeholder="Search comics" id="buscador">
+        </form>
+    </div>
 </nav>

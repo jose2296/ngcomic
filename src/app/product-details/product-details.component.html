@@ -85,6 +85,7 @@
             <div class="vcomic row" [ngClass]="{'currentComic': vComic.issueName === currentVComic.issueName, 'routeComic': vComic.issueName === comic.issueName}">
               <!-- *ngIf="vComic.issueName === currentVComic.issueName" -->
               <div class="vComicTitle col-md-8">
+                <h4>{{vComic.price | currency}}</h4>
                 {{vComic.issueName}}
               </div>
               <button [routerLink]="['/shop', vComic.issueId]" type="button" class="col-md-4 btn btn-primary" onclick="$('#comic-tab').trigger('click')"
