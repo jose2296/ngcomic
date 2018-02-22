@@ -10,6 +10,7 @@ import swal from 'sweetalert2';
 export class NotificationComponent implements OnInit {
 
     config: {};
+    visible;
 
     constructor(private notificationService: NotificationService) {
         // Inicializa los parametros de la notificacion
