@@ -16,27 +16,30 @@
                 </div>
             </div>
             <div class="col-8 col-md-10 col-lg-11">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-5 volumeInfo p-3">
-                        {{comic.issueName}}
-                        <br> {{comic.volumeName}}
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4 volumeInfo p-3 pl-5">
+                            {{comic.issueName}}
+                            <br> {{comic.volumeName}}
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 quantity row p-4">
+                            <div class="col-2"></div>
+                            <button type="button" class="col-3 p-0 btn btn-primary"
+                                    [disabled]="this.cartComicsIds[i].quantity <= 1" (click)="modifyQuantity(i,-1)">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <input type="number" class="col-2 p-0 text-center" min="1" value={{cartComicsIds[i].quantity}}
+                                   [(ngModel)]="cartComicsIds[i].quantity" (ngModelChange)="onChange($event,i)">
+                            <button type="button" class="col-3 p-0 btn btn-primary" (click)="modifyQuantity(i,1)">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                            <div class="col-2"></div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-2 price pt-3 text-center">{{comic.price | currency}}</div>
+                        <div class="col-12 col-sm-12 col-md-2 price pt-3 text-center">
+                            <button type="button" (click)="deleteComicCart(comic.issueId)" class="btn btn-danger py-2 px-4 "><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-4 quantity row p-4">
-                        <div class="col-2"></div>
-                        <button type="button" class="col-3 p-0 btn btn-primary"
-                                [disabled]="this.cartComicsIds[i].quantity <= 1" (click)="modifyQuantity(i,-1)">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <input type="number" class="col-2 p-0 text-center" min="1" value={{cartComicsIds[i].quantity}}
-                               [(ngModel)]="cartComicsIds[i].quantity" (ngModelChange)="onChange($event,i)">
-                        <button type="button" class="col-3 p-0 btn btn-primary" (click)="modifyQuantity(i,1)">
-                            <i class="fa fa-plus"></i>
-                        </button>
-                        <div class="col-2"></div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-3 price p-3 pl-5">{{comic.price | currency}}</div>
                 </div>
-            </div>
         </div>
 
         <div class="row justify-content-end p-3">

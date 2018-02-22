@@ -94,6 +94,39 @@ export class CartComponent implements OnInit {
     }
 
 
+
+    deleteComicCart(id) {
+        console.log(id);
+        for (let i = 0; i < this.cartComicsIds.length; i++) {
+          if (this.cartComicsIds[i].id === id) {
+            this.cartComicsIds.splice(i, 1);
+          }
+        }
+      
+        console.log(this.cartComicsIds);
+      
+        localStorage.setItem('cart', JSON.stringify(this.cartComicsIds));
+      
+        this.comics = [];
+        this.total = 0;
+      
+        // almenzar los comics y la cantidad total del carro
+        this._ds.issuesId.valueChanges().subscribe(comics => {
+          for (let i = 0; i < this.cartComicsIds.length; i++) {
+            this.comics.push(comics[this.cartComicsIds[i].id.toString()]);
+            this.total += comics[this.cartComicsIds[i].id.toString()].price * this.cartComicsIds[i].quantity;
+      
+          }
+          this.complete = true;
+      
+        })
+
+        this._ds.setCountCart();
+        
+      }
+
+
+
     alertRemoveCart() {
         swal({
             title: 'Are you sure?',
@@ -110,8 +143,13 @@ export class CartComponent implements OnInit {
             focusCancel: true
         }).then((result) => {
             if (result.value) {
-                // AQUI JOSE!!!!!
-                console.log('hola');
+                
+                this.comics = [];
+                this.total = 0;
+                this.cartComicsIds = [];
+                localStorage.setItem('cart', JSON.stringify(this.cartComicsIds));
+                this._ds.setCountCart();
+                
             }
         });
     }
