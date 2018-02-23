@@ -152,14 +152,19 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   alertVolume() {
-    swal({
-      position: 'bottom-end',
-      type: 'success',
-      title: 'Volume: ' + this.volume.volumeName + ' added to the cart',
-      showConfirmButton: false,
-      toast: true,
-      showCloseButton: true,
-    });
+      swal({
+          position: 'bottom',
+          type: 'success',
+          // title: this.comic.issueName + ' added to the cart',
+          title: `<span class="toast">${this.volume.volumeName } added to the cart</span>` ,
+          showConfirmButton: false,
+          toast: true,
+          showCloseButton: true,
+          background: '#1a1a1a',
+          customClass: 'toastModal',
+          timer: 3000
+
+      });
   }
 
 
