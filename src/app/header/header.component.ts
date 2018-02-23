@@ -36,6 +36,11 @@ export class HeaderComponent implements OnInit {
 
     }
 
+    search() {
+        this.stringSearch = '';
+
+    }
+
     closeMenu(): void {
         this.navBar = <Node>document.getElementById('navbarColor03');
         this.navBar.setAttribute('class', 'collapse navbar-collapse');
