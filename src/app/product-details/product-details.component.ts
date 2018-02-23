@@ -125,9 +125,9 @@ export class ProductDetailsComponent implements OnInit {
   // satisfactoriamente.
   alertCart() {
     swal({
-      position: 'bottom-end',
+      position: 'bottom',
       type: 'success',
-      // title: this.comic.issueName + ' added to the cart',
+        // title: this.comic.issueName + ' added to the cart',
       title: `<span class="toast">${this.comic.issueName } added to the cart</span>` ,
       showConfirmButton: false,
       toast: true,
