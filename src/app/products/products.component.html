@@ -3,7 +3,7 @@
   {{wordSearch}} -->
 <div class="comic-list row">
   <ng-container *ngIf="complete">
-      <div class="noResults">{{noResults}}</div>
+      <div class="noResults" *ngIf="type != 'last'">{{noResults}}</div>
       <ng-container *ngFor="let comic of result | paginate: { itemsPerPage: 8, currentPage: defaultPage }; let i = index">
           <!--Todo: arreglar el row, crear un sistema en el que no haga falta clearfix-->
           <div class="clearfix" *ngIf="i % 4 == 0"></div>
