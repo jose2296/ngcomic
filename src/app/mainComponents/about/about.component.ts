@@ -71,6 +71,8 @@ export class AboutComponent implements OnInit {
         if (localStorage.getItem('cookie') === 'true') {
             this.message = 'but we safe your data';
             this.setCookie('username', (<HTMLInputElement>document.getElementById('name')).value);
+            this.setCookie('surname', (<HTMLInputElement>document.getElementById('surname')).value);
+            this.setCookie('email', (<HTMLInputElement>document.getElementById('email1')).value);
         }
 
 
