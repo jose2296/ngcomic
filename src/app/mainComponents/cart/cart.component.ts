@@ -28,7 +28,9 @@ export class CartComponent implements OnInit {
     cartComicsIds: Array<any>;
 
     ngOnInit() {
-
+        localStorage.setItem('filter', 'rate');
+        localStorage.setItem('defaultPage', '1');
+        localStorage.setItem('search', 'empty');
     }
 
     constructor(private _ds: DataservicesService, private notificationService: NotificationService) {

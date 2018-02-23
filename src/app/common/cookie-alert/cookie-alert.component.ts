@@ -1,25 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-cookie-alert',
-  templateUrl: './cookie-alert.component.html',
-  styleUrls: ['./cookie-alert.component.css']
+    selector: 'app-cookie-alert',
+    templateUrl: './cookie-alert.component.html',
+    styleUrls: ['./cookie-alert.component.css']
 })
 export class CookieAlertComponent implements OnInit {
 
-  acept:boolean;
+    accept: boolean;
 
-  constructor() { 
-    this.acept = localStorage.getItem("cookie") == "true";
-  }
+    constructor() {
+        this.accept = localStorage.getItem('cookie') == 'true';
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 
-  aceptCookies(){
-    localStorage.setItem('cookie','true');
-    this.acept = true;
-  }
+    acceptCookies() {
+        localStorage.setItem('cookie', 'true');
+        this.accept = true;
+    }
 
 }

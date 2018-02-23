@@ -14,11 +14,13 @@ export class ComicComponent implements OnInit{
     price;
     rate;
     image;
+    @Input() defaultPage: any;
 
     constructor() {
     }
 
     ngOnInit(){
+
 
         this.name = this.comic.issueName;
         this.price = this.comic.price;

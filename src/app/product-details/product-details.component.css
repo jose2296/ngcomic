@@ -1,6 +1,16 @@
 .row{
     margin: 0;
 }
+.back{
+    margin:  1em ;
+
+    padding: 0.3em;
+    border: solid black 2px;
+    width: 9%;
+    text-align: center;
+    background-color: #1a1a1a;
+    color: white;
+}
 #comic img{
     display: block;
     margin: auto;

@@ -20,10 +20,6 @@ article > img{
   transition: 0.6s;
 }
 
-article > img:hover{
-  transform: scale(2);
-}
-
 .body{
   padding: 1rem;
 }

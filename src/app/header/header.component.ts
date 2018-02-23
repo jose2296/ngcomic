@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
     stringSearch: string;
     countCart: number;
-    buttonMenu: any;
+    inputSearch;
     navBar: any;
 
     constructor(private searchService: SearchService, private router: Router, private _ds: DataservicesService) {
@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
         });
 
     }
-
 
     updateString(): void {
         /*Modifica el valor de strignSearch del servicio*/
@@ -43,7 +42,6 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
-
 
     }
 

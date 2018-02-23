@@ -24,7 +24,7 @@ export class ProductsComponent implements OnInit {
         this.orderFilter(order);
     }
 
-    defaultPage = 1;
+    defaultPage: any;
     lastComics: number;
     result: any = [];
     comics: any = [];
@@ -52,7 +52,7 @@ export class ProductsComponent implements OnInit {
     ngOnInit() {
         /*Extrae los datos del servicio DataservicesService y los almacena en el array comics*/
         this._ds.issues.valueChanges().subscribe(data => {
-            let array = data;
+            const array = data;
             this.comics = array.slice();
             switch (this.type) {
                 /*Muestra los ultimos 3 (lastComics) comics ordenados por fecha*/
@@ -61,7 +61,7 @@ export class ProductsComponent implements OnInit {
                     break;
                 /*Filtado por rate(default) o lanza la función search con el ultimo valor de string search del servicio*/
                 case'shop':
-                    this.result = this.orderArray(this.comics, 'rate');
+                    this.result = this.orderArray(this.comics, localStorage.getItem('filter'));
                     this.stringSearch = this.searchservice.stringSearch;
                     if (this.stringSearch) this.search();
                     break;
@@ -69,6 +69,7 @@ export class ProductsComponent implements OnInit {
 
             this.complete = true;
         });
+        this.defaultPage = localStorage.getItem('defaultPage');
     }
 
     /*Función que busca si el segundo parametro está contenido en el primero*/

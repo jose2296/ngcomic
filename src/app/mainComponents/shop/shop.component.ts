@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-shop',
@@ -6,12 +6,17 @@ import {Component} from '@angular/core';
     styleUrls: ['./shop.component.css']
 })
 
-export class ShopComponent {
+export class ShopComponent implements OnInit {
 
     filter: string;
     order: boolean;
 
-    constructor() {}
+    ngOnInit() {
+        localStorage.setItem('currentComponent', 'shop');
+    }
+
+    constructor() {
+    }
 
     // Funcion que se ejecuta cuando cambia el valor de filter en alguno de sus componentes hijos.
     updateFilter(event): void {

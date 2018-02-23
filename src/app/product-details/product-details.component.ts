@@ -35,6 +35,8 @@ export class ProductDetailsComponent implements OnInit {
 
     currentVComicImage;
     currentVComic;
+    comesFrom;
+
 
     defaultPage = 1;
     complete: boolean = false;
@@ -44,10 +46,11 @@ export class ProductDetailsComponent implements OnInit {
 
         //coger el comic dependiendo del parametro de la ruta (/shop/id)
         route.params.subscribe(parametros => {
+            localStorage.setItem('defaultPage', parametros.id.substr(-1, 1));
             _ds.issuesId.valueChanges().subscribe(data => {
                 //guardar los datos del comic deseado (id)
                 this.comics = data;
-                this.comic = this.comics[parametros.id];
+                this.comic = this.comics[parametros.id.substr(0, parametros.id.length - 1)];
 
                 this.currentVComic = this.comic;
                 //almacenar los comics del volumen
@@ -68,6 +71,7 @@ export class ProductDetailsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.comesFrom = localStorage.getItem('currentComponent');
     }
 
     //Funcion que cambia la imagen que se ve en el visor segun el id que se pase
