@@ -113,21 +113,12 @@ export class ProductDetailsComponent implements OnInit {
 
   }
 
-  //Funcion que añade todos los comics de un volmen al carro (localStorage)
-  addVolume(idVol) {
-    // let comicsVol = [];
-    // for (let i = 0; i < idVol.length; i++) {
-    //   comicsVol.push(idVol[i]);
-    // }
-
-    // let a = comicsVol.concat(localStorage.getItem("cart") !== "" && localStorage.getItem("cart") !== null ? localStorage.getItem("cart").split(",") : []);
-
-
-    // localStorage.setItem("cart",a.join(","))
-
-    // this._ds.setCountCart(localStorage.getItem('cart').split(',').length > 0 ? localStorage.getItem('cart').split(',').length : 0);
-
-  }
+  // Funcion que añade todos los comics de un volmen al carro (localStorage)
+    addVolume(idVol) {
+        for (let i = 0; i < idVol.length; i++) {
+            this.addCart(idVol[i]);
+        }
+    }
 
 
   // Funcion que se ejecuta al clicar en el boton de añadir al carro, lanza una notificacion avisando de que se ha añadido
