@@ -15,3 +15,8 @@ textarea{
    visibility: hidden;
 
 }
+
+.custom-control-label::after{
+
+    border: solid #4e4d4d 0.02px;
+}
