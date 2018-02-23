@@ -17,3 +17,12 @@ body{
 .noradius{
   border-radius: 0;
 }
+
+.toast{
+  color: #ffffff;
+}
+
+.modalToast{
+  border-radius: 0;
+}
+
