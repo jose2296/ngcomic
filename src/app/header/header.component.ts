@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
 
     search() {
         this.stringSearch = '';
-
+        this.searchService.setStringSearch(this.stringSearch);
     }
 
     closeMenu(): void {
