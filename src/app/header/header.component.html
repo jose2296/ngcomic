@@ -22,9 +22,9 @@
                 <a class="nav-link route" routerLink="about" routerLinkActive="active"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <div class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" (keyup)="updateString()" [(ngModel)]="stringSearch" name="string"
-                   placeholder="Search comics" value="holaa" id="buscador">
-        </form>
+                   placeholder="Search comics" value="holaa" id="buscador" title="search">
+        </div>
     </div>
 </nav>

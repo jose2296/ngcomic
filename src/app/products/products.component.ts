@@ -16,7 +16,8 @@ export class ProductsComponent implements OnInit {
     @Input()
     set filter(filter: string) {
         this.switchFilter(filter);
-    }
+        this.defaultPage = 1;
+        }
 
     /*Lanza la función swichFilter cada vez que order cambia de valor*/
     @Input()
