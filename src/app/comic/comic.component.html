@@ -1,7 +1,9 @@
-<a [routerLink]="['/shop', id+''+defaultPage]" class="comic text-center">
-  <h6>{{name | slice:0:15}}</h6>
-    <div class="comic-cover">
-        <app-image [image]="image"></app-image>
+<a [routerLink]="['/shop', id+''+defaultPage]">
+    <div class="comic text-center">
+        <h6>{{name | slice:0:15}}</h6>
+        <div class="comic-cover">
+            <app-image [image]="image" [name]="name"></app-image>
+        </div>
+        <h6 class="pt-1 ">{{price | currency}}</h6>
     </div>
-  <h6 class="pt-1 ">{{price | currency}}</h6>
 </a>
